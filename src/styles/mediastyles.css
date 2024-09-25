@@ -1,0 +1,27 @@
+/* Styles for phones (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .sidebar .logo {
+    margin-left: 1em;
+  }
+
+  .hero-element img {
+    width: 100%;
+    height: auto; /* maintain aspect ratio */
+  }
+
+  .content {
+    width: 80%;
+    grid-template-columns: 1fr; /* Stack content in one column */
+  }
+
+  .restItemBox {
+    width: 85%;
+  }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+/* @media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    background-color: blue;
+  }
+} */

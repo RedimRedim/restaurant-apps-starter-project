@@ -1,0 +1,132 @@
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 0.9em;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #000;
+  width: fit-content;
+  height: 100vh;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.main-container {
+  /* padding: 1em 1rem;  Add padding to the left and right */
+  display: grid;
+  grid-template-rows: repeat(6, fit-content);
+  margin-bottom: 1em;
+  background-color: rgb(255, 255, 255);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  color: white;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255); /* Background color for the sidebar */
+  height: 100%;
+  border-bottom: 2px solid rgb(0, 0, 0, 0.1);
+}
+
+.sidebar .logo {
+  margin-left: 3em;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar li {
+  margin: 0.5em 1em;
+}
+
+.sidebar a {
+  color: rgb(0, 0, 0, 0.8);
+  text-decoration: none;
+  padding: 0.5em;
+  margin-right: 1em;
+}
+
+.sidebar a:hover {
+  color: #1677ff;
+  border-bottom: 2px solid #1677ff;
+}
+
+.hero-element {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.hero-element img {
+  width: 1000px;
+  /* need adjustment later */
+}
+
+.content-title {
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 650;
+  font-size: 20px;
+  text-align: center;
+  padding: 1em;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  padding: 2em;
+  gap: 1em;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background-color: rgb(245, 248, 255);
+  border-radius: 10px;
+}
+
+.restItemBox {
+  width: 80%;
+  padding: 2em;
+  border: 1px solid black;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.restPictureId img {
+  width: 100px;
+}
+
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(0, 0, 0, 0.65);
+  padding: 1em;
+  background-color: rgb(240, 243, 250);
+  line-height: 3em;
+  text-align: center;
+}
