@@ -20,6 +20,14 @@ body {
   font-weight: 500;
 }
 
+.showNav {
+  display: none;
+}
+
+.navHideShowControl {
+  display: block;
+}
+
 .main-container {
   /* padding: 1em 1rem;  Add padding to the left and right */
   display: grid;
@@ -118,8 +126,31 @@ body {
   -o-border-radius: 10px;
 }
 
+.restDetails {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
 .restPictureId img {
-  width: 100px;
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}
+
+.restDescription {
+  line-height: 1.5em;
+  text-align: justify;
+}
+
+.restName {
+  font-weight: 600;
+}
+
+.restCity {
+  font-style: italic;
 }
 
 footer {

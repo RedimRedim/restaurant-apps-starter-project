@@ -1,5 +1,8 @@
 /* Styles for phones (max-width: 480px) */
 @media screen and (max-width: 480px) {
+  .main-container {
+    width: 100%;
+  }
   .sidebar .logo {
     margin-left: 1em;
   }
@@ -7,15 +10,33 @@
   .hero-element img {
     width: 100%;
     height: auto; /* maintain aspect ratio */
+    /* margin-left: auto;
+    margin-right: auto;
+    display: block; */
   }
 
   .content {
-    width: 80%;
-    grid-template-columns: 1fr; /* Stack content in one column */
+    width: 95%;
+    max-height: 700px;
+    padding: 0;
+    overflow-y: auto;
+    grid-template-columns: 1fr;
   }
 
   .restItemBox {
-    width: 85%;
+    width: 80%;
+  }
+
+  .restPictureId img {
+    width: 100%;
+  }
+
+  .showNav {
+    display: inline-block;
+  }
+
+  .navHideShowControl {
+    display: none;
   }
 }
 
