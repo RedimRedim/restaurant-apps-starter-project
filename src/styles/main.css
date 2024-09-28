@@ -4,24 +4,11 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-body {
-  font-family: var(--font-family);
-  font-size: 0.9em;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  color: #000;
-  width: fit-content;
-  height: 100vh;
-}
+
 
 .logo {
   font-size: 20px;
   font-weight: 500;
-}
-
-.showNav {
-  display: none;
 }
 
 .navHideShowControl {
@@ -31,7 +18,7 @@ body {
 .main-container {
   /* padding: 1em 1rem;  Add padding to the left and right */
   display: grid;
-  grid-template-rows: repeat(6, fit-content);
+  grid-template-rows: repeat(auto-fill, fit-content);
   margin-bottom: 1em;
   background-color: rgb(255, 255, 255);
 }
@@ -49,50 +36,75 @@ body {
   top: 0;
 }
 
-.sidebar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+nav {
   background-color: rgb(255, 255, 255); /* Background color for the sidebar */
-  height: 100%;
   border-bottom: 2px solid rgb(0, 0, 0, 0.1);
 }
 
-.sidebar .logo {
-  margin-left: 3em;
+.firstSidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-.sidebar ul {
+.firstSidebar li a:hover {
+  cursor: pointer;
+}
+
+.firstSidebar li,
+.firstSidebar a {
+  width: 100%;
+}
+
+nav ul {
   list-style-type: none;
   padding: 0;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.sidebar li {
+nav li {
   margin: 0.5em 1em;
 }
 
-.sidebar a {
+nav a {
   color: rgb(0, 0, 0, 0.8);
   text-decoration: none;
   padding: 0.5em;
   margin-right: 1em;
+  display: flex;
+  align-items: center;
 }
 
-.sidebar a:hover {
+nav a:hover {
   color: #1677ff;
   border-bottom: 2px solid #1677ff;
 }
 
-.hero-element {
-  margin: 0 auto;
-  width: fit-content;
+.logo {
+  margin-left: 3em;
+  margin-right: auto;
 }
+
+
 
 .hero-element img {
   width: 1000px;
   /* need adjustment later */
+}
+
+.showNav {
+  display: none;
 }
 
 .content-title {
@@ -106,8 +118,7 @@ body {
 .content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 90%;
-  padding: 2em;
+  padding: 1em;
   gap: 1em;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -117,7 +128,7 @@ body {
 
 .restItemBox {
   width: 80%;
-  padding: 2em;
+  padding: 1em;
   border: 1px solid black;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -154,10 +165,10 @@ body {
 }
 
 footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
   color: rgba(0, 0, 0, 0.65);
   padding: 1em;
   background-color: rgb(240, 243, 250);
-  line-height: 3em;
+  line-height: 2em;
   text-align: center;
 }

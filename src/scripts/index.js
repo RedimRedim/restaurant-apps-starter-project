@@ -27,7 +27,23 @@ function generateRestaurantHtml(dataRestaurants) {
 }
 
 function showNav() {
-  console.log("asd");
+  const showNavOnClick = document.querySelector(".showNav");
+
+  showNavOnClick.addEventListener("click", () => {
+    const showNavBtn = document.querySelector(".firstSidebar");
+    showNavBtn.style.display = "flex";
+  });
+}
+
+function hideSidebar() {
+  const showNavOnClick = document.querySelector(".hideSidebar");
+
+  showNavOnClick.addEventListener("click", () => {
+    const showNavBtn = document.querySelector(".firstSidebar");
+    showNavBtn.style.display = "none";
+  });
 }
 
 generateRestaurantHtml(dataRestaurants);
+showNav();
+hideSidebar();

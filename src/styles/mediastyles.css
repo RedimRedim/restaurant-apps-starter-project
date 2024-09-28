@@ -1,48 +1,81 @@
 /* Styles for phones (max-width: 480px) */
-@media screen and (max-width: 480px) {
-  .main-container {
-    width: 100%;
+@media (min-width: 100px) and (max-width: 480px) {
+  body,
+  html {
+    font-family: var(--font-family);
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    box-sizing: border-box;
+    color: #000;
   }
-  .sidebar .logo {
+  nav .logo {
     margin-left: 1em;
+  }
+
+  .hero-element {
+    width: fit-content;
+  }
+
+  .main-container {
+    width: fit-content;
   }
 
   .hero-element img {
     width: 100%;
     height: auto; /* maintain aspect ratio */
-    /* margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
-    display: block; */
+    display: block;
+  }
+
+  .content-title {
+    margin-top: 1em;
+    padding: 0;
   }
 
   .content {
-    width: 95%;
-    max-height: 700px;
-    padding: 0;
-    overflow-y: auto;
     grid-template-columns: 1fr;
+    width: 95%;
   }
 
   .restItemBox {
     width: 80%;
+    padding: 1em;
+    margin: 0 auto;
   }
 
   .restPictureId img {
     width: 100%;
+    height: auto; /* maintain aspect ratio */
   }
 
   .showNav {
     display: inline-block;
   }
 
-  .navHideShowControl {
+  .hideOnMobile {
     display: none;
   }
 }
 
-/* Media Query for Tablets Ipads portrait mode */
-/* @media (min-width: 768px) and (max-width: 1024px) {
-  body {
-    background-color: blue;
+/* Styles for small tablets in portrait */
+@media (min-width: 600px) and (max-width: 768px) {
+  .hero-element img {
+    width: 100%;
+    height: auto; /* maintain aspect ratio */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
-} */
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 95%;
+  }
+
+  .restItemBox {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
