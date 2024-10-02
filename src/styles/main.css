@@ -1,10 +1,18 @@
 :root {
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family: "Quicksand", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
 }
 
-
+body {
+  font-family: var(--font-family);
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: #000;
+}
 
 .logo {
   font-size: 20px;
@@ -84,6 +92,7 @@ nav a {
   margin-right: 1em;
   display: flex;
   align-items: center;
+  border-bottom: 2px solid transparent; /* Set a transparent border initially */
 }
 
 nav a:hover {
@@ -96,10 +105,18 @@ nav a:hover {
   margin-right: auto;
 }
 
-
+.hero-element {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
 
 .hero-element img {
-  width: 1000px;
+  width: 100%;
+  height: auto; /* maintain aspect ratio */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   /* need adjustment later */
 }
 
@@ -118,7 +135,7 @@ nav a:hover {
 .content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 1em;
+  width: 95%;
   gap: 1em;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -127,7 +144,7 @@ nav a:hover {
 }
 
 .restItemBox {
-  width: 80%;
+  width: 90%;
   padding: 1em;
   border: 1px solid black;
   border-radius: 10px;
@@ -144,7 +161,7 @@ nav a:hover {
 }
 
 .restPictureId img {
-  width: 300px;
+  width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;

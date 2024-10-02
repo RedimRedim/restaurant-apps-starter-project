@@ -1,24 +1,24 @@
+@media (min-width: 1200px) {
+  .hero-element img {
+    width: 1000px;
+    height: auto; /* maintain aspect ratio */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    /* need adjustment later */
+  }
+}
+
 /* Styles for phones (max-width: 480px) */
 @media (min-width: 100px) and (max-width: 480px) {
-  body,
-  html {
-    font-family: var(--font-family);
-    padding: 0;
-    margin: 0;
-    width: fit-content;
-    box-sizing: border-box;
-    color: #000;
-  }
   nav .logo {
     margin-left: 1em;
   }
 
   .hero-element {
-    width: fit-content;
-  }
-
-  .main-container {
-    width: fit-content;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
   }
 
   .hero-element img {
@@ -30,13 +30,12 @@
   }
 
   .content-title {
-    margin-top: 1em;
-    padding: 0;
+    padding: 1em;
   }
 
   .content {
     grid-template-columns: 1fr;
-    width: 95%;
+    width: 100%;
   }
 
   .restItemBox {
@@ -61,6 +60,12 @@
 
 /* Styles for small tablets in portrait */
 @media (min-width: 600px) and (max-width: 768px) {
+  .hero-element {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
   .hero-element img {
     width: 100%;
     height: auto; /* maintain aspect ratio */
@@ -69,13 +74,18 @@
     display: block;
   }
   .content {
+    row-gap: 1em;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    width: 95%;
   }
 
   .restItemBox {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
+  }
+
+  .restPictureId img {
+    width: 100%;
+    height: auto; /* maintain aspect ratio */
   }
 }

@@ -8,7 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
     "test": "jest",
-   "start": "webpack-dev-server --config webpack.dev.js --open",
+    "start": "webpack-dev-server --config webpack.dev.js --open",
     "test:watch": "jest --watchAll"
   },
   "keywords": [],
@@ -37,6 +37,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "nanoid": "^5.0.7",
     "regenerator-runtime": "^0.14.0"
   }
 }
