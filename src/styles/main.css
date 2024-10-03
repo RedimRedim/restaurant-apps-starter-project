@@ -36,7 +36,6 @@ body {
   top: -40px;
   left: 0;
   padding: 8px;
-  color: white;
   z-index: 100;
 }
 
@@ -85,14 +84,32 @@ nav li {
   margin: 0.5em 1em;
 }
 
-nav a {
+nav a,
+ul button {
   color: rgb(0, 0, 0, 0.8);
+  height: 50px;
   text-decoration: none;
-  padding: 0.5em;
   margin-right: 1em;
   display: flex;
   align-items: center;
   border-bottom: 2px solid transparent; /* Set a transparent border initially */
+}
+
+button.hideSidebar {
+  width: 44px; /* Ensure the button is 44px by 44px */
+  height: 44px;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+button.hideSidebar svg {
+  width: 44px; /* Ensure the button is 44px by 44px */
+  height: 44px;
 }
 
 nav a:hover {
@@ -188,4 +205,95 @@ footer {
   background-color: rgb(240, 243, 250);
   line-height: 2em;
   text-align: center;
+}
+
+/* button {
+  background-color: rgb(13, 110, 253);
+  border-radius: 5px;
+  border: 0;
+  color: #fffffe;
+  width: 150px;
+  padding: 1em;
+  cursor: pointer;
+  margin: 1em 0;
+  margin-left: 3.5em;
+} */
+
+#cancelRest {
+  background-color: #94a1b2;
+}
+
+.restContent {
+  width: 150px;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.restContent.show {
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+}
+
+.rest-group {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+
+label {
+  padding: 1em;
+  width: 20%;
+}
+
+#restTitle,
+textarea {
+  flex-grow: 1;
+}
+
+.rest-button-group {
+  padding: 0 1em;
+  width: 20%;
+  column-gap: 20px;
+}
+
+.rest-group input:focus,
+.rest-group textarea:focus {
+  font-size: 18px;
+  flex-grow: 1;
+  outline: none;
+  border: none;
+}
+
+.form-check {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  gap: 4em;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: center;
+}
+
+.form-check-label {
+  margin-left: -50px;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+}
+
+.form-check-input {
+  width: 15% !important;
+  height: 10% !important;
+  border: 1px solid white !important;
+  padding: 1em !important;
+  margin-bottom: 2em;
+}
+
+.restContent {
+  width: 500px;
 }
