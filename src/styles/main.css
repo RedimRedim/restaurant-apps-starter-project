@@ -36,7 +36,16 @@ body {
   top: -40px;
   left: 0;
   padding: 8px;
+  background-color: #1677ff;
+  color: rgb(255, 255, 255);
+  border: none;
+  outline: none;
+  border-radius: 9px;
   z-index: 100;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
 }
 
 .skip-link:focus {
@@ -69,6 +78,8 @@ nav {
 .firstSidebar li,
 .firstSidebar a {
   width: 100%;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 nav ul {
@@ -96,8 +107,8 @@ ul button {
 }
 
 button.hideSidebar {
-  width: 44px; /* Ensure the button is 44px by 44px */
-  height: 44px;
+  min-width: 44px; /* Ensure the button is 44px by 44px */
+  min-height: 44px;
   background: none;
   border: none;
   padding: 0;
