@@ -36,6 +36,11 @@ function handlingAddRestBtn() {
       addRestElement.textContent = "Add Restaurant";
     }
   });
+
+  document.getElementById("cancelRest").addEventListener("click", () => {
+    restForm.style.display = "none"; // Hide the form
+    addRestElement.textContent = "Add Restaurant";
+  });
 }
 
 function handlingSubmitRestForm() {

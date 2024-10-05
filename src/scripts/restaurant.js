@@ -26,9 +26,4 @@ export class Restaurant {
 
     contentDiv.innerHTML = dataHtml.join("");
   }
-
-  addRestaurant() {
-    // Add restaurant functionality
-  }
-
 }
