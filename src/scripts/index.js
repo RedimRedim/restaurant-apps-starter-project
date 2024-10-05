@@ -5,8 +5,6 @@ import { Restaurant } from "../scripts/restaurant.js";
 
 const RestaurantClass = new Restaurant();
 
-
-
 function showNav() {
   const showNavOnClick = document.querySelector(".showNav");
 
@@ -25,6 +23,42 @@ function hideSidebar() {
   });
 }
 
+function handlingAddRestBtn() {
+  const addRestElement = document.getElementById("addRestaurant");
+
+  addRestElement.addEventListener("click", () => {
+    const currentDisplay = document.getElementById("restForm").style.display;
+    if (currentDisplay === "none" || currentDisplay === "") {
+      restForm.style.display = "block"; // Show the form
+      addRestElement.textContent = "Hide Button";
+    } else {
+      restForm.style.display = "none"; // Hide the form
+      addRestElement.textContent = "Add Restaurant";
+    }
+  });
+}
+
+function handlingSubmitRestForm() {
+  document.getElementById("restForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target); // Creates a FormData object
+
+    const restData = {
+      restName: formData.get("restName"),
+      restDesc: formData.get("restDesc"),
+      restCity: formData.get("restCity"),
+      restPictureId: formData.get("restPictureId"),
+      restRating: formData.get("restRating"),
+    };
+
+    window.alert(
+      JSON.stringify(restData) + "reserve post data to backend in the future"
+    ); //reserve post data to backend in the future
+  });
+}
+
 RestaurantClass.generateRestaurantHtml();
 showNav();
 hideSidebar();
+handlingAddRestBtn();
+handlingSubmitRestForm();

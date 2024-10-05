@@ -185,9 +185,17 @@ nav a:hover {
   margin-bottom: 1em;
 }
 
+.rest-group input {
+  align-items: center;
+  align-content: center;
+  font-size: 1.2em;
+}
+
 .restDescription {
   line-height: 1.5em;
   text-align: justify;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .restName {
@@ -196,6 +204,40 @@ nav a:hover {
 
 .restCity {
   font-style: italic;
+}
+
+#restRating {
+  color: rgb(13, 110, 253);
+  font-size: 1.5em;
+}
+
+#cancelRest,
+#saveRest {
+  width: 15%;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+#cancelRest {
+  margin-left: 2em;
+  background-color: #94a1b2;
+
+  color: rgb(255, 255, 255);
+}
+
+#saveRest {
+  background-color: #1677ff;
+  color: rgb(255, 255, 255);
+}
+
+#saveRest:hover,
+#cancelRest:hover {
+  cursor: pointer;
 }
 
 footer {
@@ -219,10 +261,6 @@ footer {
   margin-left: 3.5em;
 } */
 
-#cancelRest {
-  background-color: #94a1b2;
-}
-
 .restContent {
   width: 150px;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
@@ -238,11 +276,20 @@ footer {
   height: auto;
 }
 
+#restForm {
+  padding: 2em;
+  width: 50%;
+}
+
+textarea {
+  flex-grow: 1;
+  font-size: 1.5em;
+}
+
 .rest-group {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 label {
@@ -250,50 +297,32 @@ label {
   width: 20%;
 }
 
-#restTitle,
-textarea {
+.rest-group input {
   flex-grow: 1;
-}
-
-.rest-button-group {
-  padding: 0 1em;
-  width: 20%;
-  column-gap: 20px;
-}
-
-.rest-group input:focus,
-.rest-group textarea:focus {
-  font-size: 18px;
-  flex-grow: 1;
-  outline: none;
-  border: none;
-}
-
-.form-check {
-  width: 100%;
-  margin: 0;
-  display: flex;
-  gap: 4em;
-  justify-content: flex-start;
-  align-items: center;
-  align-self: center;
-}
-
-.form-check-label {
-  margin-left: -50px;
-  align-items: center;
-  align-self: center;
-  justify-content: center;
-}
-
-.form-check-input {
-  width: 15% !important;
-  height: 10% !important;
-  border: 1px solid white !important;
-  padding: 1em !important;
-  margin-bottom: 2em;
 }
 
 .restContent {
   width: 500px;
+}
+
+.rest-button-group {
+  display: flex;
+}
+
+#saveRest,
+#cancelRest {
+  padding: 1em;
+}
+
+#addRestaurant {
+  padding: 1.5em;
+  border: none;
+  background-color: #1677ff;
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  margin: 0.5em 3em;
 }

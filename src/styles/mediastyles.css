@@ -56,6 +56,32 @@
   .hideOnMobile {
     display: none;
   }
+
+  #restForm {
+    width: 90%;
+    padding: 0.5em;
+    margin-left: 0.5em;
+  }
+
+  .rest-group {
+    margin-bottom: 0.5em;
+  }
+
+  .rest-button-group {
+    padding: 0.5em;
+  }
+
+  textarea {
+    flex-grow: 1;
+  }
+
+  .rest-group input {
+    font-size: 1em;
+  }
+
+  textarea {
+    font-size: 1em;
+  }
 }
 
 /* Styles for small tablets in portrait */
@@ -87,5 +113,19 @@
   .restPictureId img {
     width: 100%;
     height: auto; /* maintain aspect ratio */
+  }
+
+  #restForm {
+    width: 85%;
+    padding: 0.5em;
+    margin-left: 1em;
+  }
+
+  .rest-group {
+    margin-bottom: 0.5em;
+  }
+
+  .rest-button-group {
+    padding: 0.5em;
   }
 }
