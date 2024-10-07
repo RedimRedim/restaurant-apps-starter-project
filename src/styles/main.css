@@ -78,8 +78,8 @@ nav {
 .firstSidebar li,
 .firstSidebar a {
   width: 100%;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 nav ul {
@@ -92,7 +92,9 @@ nav ul {
 }
 
 nav li {
-  margin: 0.5em 1em;
+  margin: 0.5em;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 nav a,

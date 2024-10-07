@@ -9,7 +9,7 @@
   }
 }
 
-@media (min-width: 100px) and (max-width: 599px) {
+@media (min-width: 100px) and (max-width: 480px) {
   nav .logo {
     margin-left: 1em;
   }
@@ -84,7 +84,7 @@
 }
 
 /* Styles for small tablets in portrait */
-@media (min-width: 600px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .hero-element {
     width: 100%;
     padding: 0;
