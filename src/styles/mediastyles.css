@@ -9,8 +9,7 @@
   }
 }
 
-/* Styles for phones (max-width: 480px) */
-@media (min-width: 100px) and (max-width: 480px) {
+@media (min-width: 100px) and (max-width: 599px) {
   nav .logo {
     margin-left: 1em;
   }
