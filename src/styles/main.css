@@ -97,10 +97,15 @@ nav li {
   min-height: 50px;
 }
 
+svg {
+  min-width: 60px;
+  min-height: 50px;
+}
 nav a,
 ul button {
   color: rgb(0, 0, 0, 0.8);
-  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
   text-decoration: none;
   margin-right: 1em;
   display: flex;
