@@ -37,6 +37,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "idb": "^8.0.0",
     "nanoid": "^5.0.7",
     "regenerator-runtime": "^0.14.0"
   }

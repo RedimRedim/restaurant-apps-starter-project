@@ -5,7 +5,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, "src/scripts/index.js"),
+    main: "./src/scripts/views/main.js",
+    restdetail: "./src/scripts/views/restdetail.js",
   },
   output: {
     filename: "[name].bundle.js",
@@ -32,8 +33,16 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: path.resolve(__dirname, "src/templates/index.html"),
+      template: path.resolve(__dirname, "./src/templates/index.html"),
+      chunks: ["main"],
     }),
+
+    new HtmlWebpackPlugin({
+      filename: "restdetail.html",
+      template: path.resolve(__dirname, "./src/templates/restdetail.html"),
+      chunks: ["restdetail"],
+    }),
+
     new CopyWebpackPlugin({
       patterns: [
         {

@@ -1,7 +1,7 @@
 import "regenerator-runtime"; /* for async await transpile */
-import "../styles/main.css";
-import "../styles/mediastyles.css";
-import { Restaurant } from "../scripts/restaurant.js";
+import "../../styles/main.css";
+import "../..//styles/mediastyles.css";
+import { Restaurant } from "../utils/restaurant.js";
 
 const RestaurantClass = new Restaurant();
 
