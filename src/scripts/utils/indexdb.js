@@ -9,22 +9,42 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
   },
 });
 
-const FavoriteRestIdb = {
+export const FavoriteRestIdb = {
   async getRestaurant(id) {
-    return (await dbPromise).get(OBJECT_STORE_NAME, id);
+    try {
+      return (await dbPromise).get(OBJECT_STORE_NAME, id);
+    } catch (error) {
+      console.error("ERROR getting restaurant", error);
+    }
   },
 
   async getAllRestaurants() {
-    return (await dbPromise).getAll(OBJECT_STORE_NAME);
+    try {
+      return (await dbPromise).getAll(OBJECT_STORE_NAME);
+    } catch (error) {
+      console.error("ERROR getting all restaurants", error);
+    }
   },
 
   async addRestaurant(restaurant) {
-    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
+    try {
+      return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
+    } catch (error) {
+      console.error("ERROR adding restaurant", error);
+    }
   },
 
   async delRestaurant(id) {
-    return (await dbPromise).delete(OBJECT_STORE_NAME, id);
+    try {
+      return (await dbPromise).delete(OBJECT_STORE_NAME, id);
+    } catch (error) {
+      console.log("ERROR deleting restaurant", error);
+    }
+  },
+
+  async isFavorite(id) {
+    const favoriteRestaurant = await FavoriteRestIdb.getAllRestaurants();
+
+    return favoriteRestaurant.some((restaurant) => restaurant.id == id);
   },
 };
-
-export default FavoriteRestIdb;

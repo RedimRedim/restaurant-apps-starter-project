@@ -2,7 +2,7 @@ import "regenerator-runtime"; /* for async await transpile */
 import "../../styles/main.css";
 import "../..//styles/mediastyles.css";
 import { Restaurant } from "../utils/restaurant.js";
-
+import 
 const RestaurantClass = new Restaurant();
 
 function showNav() {

@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     main: "./src/scripts/views/main.js",
     restdetail: "./src/scripts/views/restdetail.js",
+    restfavorite: "./src/scripts/views/restfavorite.js",
   },
   output: {
     filename: "[name].bundle.js",
@@ -37,11 +38,17 @@ module.exports = {
       chunks: ["main"],
     }),
 
-    new HtmlWebpackPlugin({
-      filename: "restdetail.html",
-      template: path.resolve(__dirname, "./src/templates/restdetail.html"),
-      chunks: ["restdetail"],
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: "restdetail.html",
+    //   template: path.resolve(__dirname, "./src/templates/restdetail.html"),
+    //   chunks: ["restdetail"],
+    // }),
+
+    // new HtmlWebpackPlugin({
+    //   filename: "restfavorite.html",
+    //   template: path.resolve(__dirname, "./src/templates/restfavorite.html"),
+    //   chunks: ["restfavorite"],
+    // }),
 
     // new CopyWebpackPlugin({
     //   patterns: [

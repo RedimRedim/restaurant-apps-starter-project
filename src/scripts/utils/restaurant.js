@@ -1,4 +1,5 @@
 const API_ENDPOINT = "https://restaurant-api.dicoding.dev";
+import { FavoriteRestIdb } from "../utils/indexdb.js";
 export class Restaurant {
   constructor() {}
 
@@ -30,6 +31,12 @@ export class Restaurant {
   async generateRestDetailHtml(id) {
     const dataRestaurants = await this.getRestDetails(id);
 
+    const buttonHtml = `${
+      (await FavoriteRestIdb.isFavorite(id))
+        ? `<button class="likeBtn favBtn" data-restid=${dataRestaurants.id}>Unlike</button>`
+        : `<button class="unlikeBtn favBtn" data-restid=${dataRestaurants.id}>Like</button>`
+    }`;
+
     const contentDiv = document.querySelector(".content");
 
     let foodsHtml = dataRestaurants.menus.foods
@@ -52,6 +59,11 @@ export class Restaurant {
       .join("");
 
     contentDiv.innerHTML = `<div class="restName" id="name">${dataRestaurants.name}</div>
+          <div class="restPictureId">
+                  <a href="/restdetail.html?id=${dataRestaurants.id}">
+                <img src="https://restaurant-api.dicoding.dev/images/small/${dataRestaurants.pictureId}" alt="${dataRestaurants.name}">
+                </a>
+              </div>
                 <div class="restAddress" id="address">${dataRestaurants.address}</div>
                 <div class="restCity" id="city">${dataRestaurants.city}</div>
                 <div class="restDesc" id="description">${dataRestaurants.description}</div>
@@ -68,9 +80,10 @@ export class Restaurant {
                  ${reviewsHtml}
                 </div>
 
+                ${buttonHtml}
+                `;
 
-                <button class="text">CLICK ME</button>
-`;
+    return dataRestaurants;
   }
 
   async generateRestaurantHtml() {
@@ -95,7 +108,7 @@ export class Restaurant {
           <div class="restCity" tabindex="0">${data.city}</div>
           </div>
           <div class="restPictureId" tabindex="0">
-              <a href="/restdetail.html??id=${data.id}">
+              <a href="/restdetail.html?id=${data.id}">
             <img src="https://restaurant-api.dicoding.dev/images/small/${data.pictureId}" alt="${data.name}">
             </a>
           </div>
