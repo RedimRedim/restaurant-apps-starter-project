@@ -1,16 +1,20 @@
-const data = require("../../public/data/DATA.json");
 const API_ENDPOINT = "https://restaurant-api.dicoding.dev";
 export class Restaurant {
   constructor() {}
 
   async getRestaurants() {
-    const response = await fetch(`${API_ENDPOINT}/list`, {
-      method: "GET",
-    });
+    try {
+      const response = await fetch(`${API_ENDPOINT}/list`, {
+        method: "GET",
+      });
 
-    const apiData = await response.json();
+      const apiData = await response.json();
 
-    return apiData.restaurants;
+      return apiData.restaurants;
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+      return [];
+    }
   }
 
   async getRestDetails(id) {
@@ -73,6 +77,11 @@ export class Restaurant {
     const dataRestaurants = await this.getRestaurants();
 
     console.log(dataRestaurants);
+
+    if (dataRestaurants.length === 0) {
+      window.alert("ERROR FETCHING DATA");
+      return;
+    }
 
     const contentDiv = document.querySelector(".content");
     let dataHtml = [];
