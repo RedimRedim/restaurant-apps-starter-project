@@ -1,6 +1,6 @@
 import "regenerator-runtime"; /* for async await transpile */
-import "../../styles/main.css";
-import "../../styles/mediastyles.css";
+import "../../../styles/main.css";
+import "../../../styles/mediastyles.css";
 import { Restaurant } from "../utils/restaurant.js";
 import { getQueryParameter } from "../utils/queryparams.js";
 import { FavoriteRestIdb } from "../utils/indexdb.js";

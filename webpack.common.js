@@ -5,9 +5,9 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./src/scripts/views/main.js",
-    restdetail: "./src/scripts/views/restdetail.js",
-    restfavorite: "./src/scripts/views/restfavorite.js",
+    main: "./src/scripts/views/component/main.js",
+    restdetail: "./src/scripts/views/component/detail.js",
+    restfavorite: "./src/scripts/views/component/favorite.js",
   },
   output: {
     filename: "[name].bundle.js",

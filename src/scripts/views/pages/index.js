@@ -1,4 +1,4 @@
-export const home = {
+export const index = {
   render() {
     return `
         <main>

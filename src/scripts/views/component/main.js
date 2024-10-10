@@ -1,15 +1,26 @@
 import "regenerator-runtime"; /* for async await transpile */
-import "../../styles/main.css";
-import "../..//styles/mediastyles.css";
-import { Restaurant } from "../utils/restaurant.js";
+import "../../../styles/main.css";
+import "../../../styles/mediastyles.css";
+import { Restaurant } from "../../utils/restaurant.js";
 const RestaurantClass = new Restaurant();
+import App from "../app.js";
 
-document
-  .getElementById("hamburgerButton")
-  .addEventListener("click", function () {
-    const nav = document.getElementById("navigationDrawer");
-    nav.classList.toggle("open");
-  });
+//rendering urlParser
+const app = new App({
+  button: document.querySelector("#hamburgerButton"),
+  drawer: document.querySelector("#navigationDrawer"),
+  content: document.querySelector("#mainContent"),
+});
+
+window.addEventListener("hashchange", () => {
+  app.renderPage();
+});
+
+window.addEventListener("load", () => {
+  app.renderPage();
+});
+
+///
 
 function handlingAddRestBtn() {
   const addRestElement = document.getElementById("addRestaurant");

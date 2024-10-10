@@ -96,7 +96,7 @@ export class Restaurant {
       return;
     }
 
-    const contentDiv = document.querySelector(".content");
+    const contentDiv = document.querySelector("#mainContent");
     let dataHtml = [];
 
     dataRestaurants.forEach((data) => {
