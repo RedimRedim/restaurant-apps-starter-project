@@ -1,5 +1,5 @@
 :root {
-  --font-family: "Quicksand", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+  --font-family: "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
 }
@@ -19,16 +19,62 @@ body {
   font-weight: 500;
 }
 
-.navHideShowControl {
-  display: block;
-}
-
-.main-container {
+.app-bar {
   /* padding: 1em 1rem;  Add padding to the left and right */
-  display: grid;
-  grid-template-rows: repeat(auto-fill, fit-content);
+  padding: 0.5em 1em;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 1em;
   background-color: rgb(255, 255, 255);
+}
+
+.app-bar .app-bar__menu {
+  display: flex;
+  align-items: center;
+}
+
+.app-bar .app-bar__menu button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.app-bar .app-bar__brand {
+  display: flex;
+  align-items: center;
+}
+
+.app-bar .app-bar__navigation {
+  position: absolute;
+  top: 50px;
+  left: -180px;
+  width: 150px;
+  transition: all 0.3s;
+  padding: 8px;
+  overflow: hidden;
+  background-color: white; /* Ensure background is set */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional for visibility */
+}
+
+.app-bar .app-bar__navigation.open {
+  left: 0;
+}
+
+.app-bar .app-bar__navigation ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 8px;
+  margin-bottom: 5px;
+  width: 100%;
 }
 
 .skip-link {
@@ -52,12 +98,7 @@ body {
   top: 0;
 }
 
-nav {
-  background-color: rgb(255, 255, 255); /* Background color for the sidebar */
-  border-bottom: 2px solid rgb(0, 0, 0, 0.1);
-}
-
-.firstSidebar {
+/* .firstSidebar {
   position: fixed;
   top: 0;
   right: 0;
@@ -95,13 +136,14 @@ nav li {
   margin: 0.5em;
   min-width: 50px;
   min-height: 50px;
-}
+} */
 
 svg {
   min-width: 60px;
   min-height: 50px;
 }
-nav a,
+
+/*
 ul button {
   color: rgb(0, 0, 0, 0.8);
   min-width: 50px;
@@ -110,25 +152,8 @@ ul button {
   margin-right: 1em;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid transparent; /* Set a transparent border initially */
-}
-
-button.hideSidebar {
-  min-width: 44px; /* Ensure the button is 44px by 44px */
-  min-height: 44px;
-  background: none;
-  border: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-button.hideSidebar svg {
-  width: 44px; /* Ensure the button is 44px by 44px */
-  height: 44px;
-}
+  border-bottom: 2px solid transparent; /* Set a transparent border initially 
+*/
 
 nav a:hover {
   color: #1677ff;
@@ -153,10 +178,6 @@ nav a:hover {
   margin-right: auto;
   display: block;
   /* need adjustment later */
-}
-
-.showNav {
-  display: none;
 }
 
 .content-title {
@@ -266,18 +287,6 @@ footer {
   line-height: 2em;
   text-align: center;
 }
-
-/* button {
-  background-color: rgb(13, 110, 253);
-  border-radius: 5px;
-  border: 0;
-  color: #fffffe;
-  width: 150px;
-  padding: 1em;
-  cursor: pointer;
-  margin: 1em 0;
-  margin-left: 3.5em;
-} */
 
 .restContent {
   width: 150px;

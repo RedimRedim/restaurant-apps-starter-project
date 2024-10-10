@@ -2,26 +2,14 @@ import "regenerator-runtime"; /* for async await transpile */
 import "../../styles/main.css";
 import "../..//styles/mediastyles.css";
 import { Restaurant } from "../utils/restaurant.js";
-import 
 const RestaurantClass = new Restaurant();
 
-function showNav() {
-  const showNavOnClick = document.querySelector(".showNav");
-
-  showNavOnClick.addEventListener("click", () => {
-    const showNavBtn = document.querySelector(".firstSidebar");
-    showNavBtn.style.display = "flex";
+document
+  .getElementById("hamburgerButton")
+  .addEventListener("click", function () {
+    const nav = document.getElementById("navigationDrawer");
+    nav.classList.toggle("open");
   });
-}
-
-function hideSidebar() {
-  const showNavOnClick = document.querySelector(".hideSidebar");
-
-  showNavOnClick.addEventListener("click", () => {
-    const showNavBtn = document.querySelector(".firstSidebar");
-    showNavBtn.style.display = "none";
-  });
-}
 
 function handlingAddRestBtn() {
   const addRestElement = document.getElementById("addRestaurant");
@@ -63,7 +51,5 @@ function handlingSubmitRestForm() {
 }
 
 RestaurantClass.generateRestaurantHtml();
-showNav();
-hideSidebar();
 handlingAddRestBtn();
 handlingSubmitRestForm();

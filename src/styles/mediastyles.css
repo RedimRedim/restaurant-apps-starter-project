@@ -9,6 +9,23 @@
   }
 }
 
+@media (min-width: 768px) {
+  .app-bar .app-bar__menu {
+    display: none;
+  }
+
+  .app-bar .app-bar__navigation {
+    position: static;
+    display: flex;
+    width: auto; /* Adjust width */
+  }
+
+  #navigationDrawer ul {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 @media (min-width: 100px) and (max-width: 480px) {
   nav .logo {
     margin-left: 1em;
