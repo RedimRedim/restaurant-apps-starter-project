@@ -1,10 +1,6 @@
 export const index = {
   render() {
     return `
-        <main>
-    <div class="hero-element">
-      <img src="./images/heros/hero-image_2.jpg" alt="restaurant">
-    </div>
 
     <section>
 
@@ -51,6 +47,6 @@ export const index = {
     </section>
 
     </div>
-  </main>`;
+    `;
   },
 };

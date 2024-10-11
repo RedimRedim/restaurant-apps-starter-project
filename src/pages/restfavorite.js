@@ -1,6 +1,6 @@
 export const restFavorite = {
-  render() {
-    return ` <main>
+  async render() {
+    return `
         <section>
 
             <div class="content-title" id="exploreContent">Favorite/Liked Restaurant</div>
@@ -10,8 +10,6 @@ export const restFavorite = {
                 <!-- automatically generate through js box content-->
             </div>
         </section>
-
-        </div>
-    </main>`;
+        </div>`;
   },
 };

@@ -1,6 +1,6 @@
 export const restDetail = {
   render() {
-    return `<main>
+    return `
         <section>
 
             <div class="content-title" id="exploreContent">Detail Restaurant</div>
@@ -12,6 +12,6 @@ export const restDetail = {
         </section>
 
         </div>
-    </main>`;
+    `;
   },
 };
