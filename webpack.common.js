@@ -6,8 +6,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   entry: {
     main: "./src/component/main.js",
-    restdetail: "./src/component/detail.js",
-    restfavorite: "./src/component/favorite.js",
   },
   output: {
     filename: "[name].bundle.js",
@@ -38,6 +36,25 @@ module.exports = {
       chunks: ["main"],
     }),
 
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "src/images", to: "images" }, // Adjust according to your file structure
+      ],
+    }),
+
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "./manifest.json"),
+          to: path.resolve(__dirname, "dist/"),
+        },
+        {
+          from: path.resolve(__dirname, "src/images/icons"), // if you have icons
+          to: path.resolve(__dirname, "dist/icons"),
+        },
+      ],
+    }),
+
     // new HtmlWebpackPlugin({
     //   filename: "restdetail.html",
     //   template: path.resolve(__dirname, "./src/templates/restdetail.html"),
@@ -48,15 +65,6 @@ module.exports = {
     //   filename: "restfavorite.html",
     //   template: path.resolve(__dirname, "./src/templates/restfavorite.html"),
     //   chunks: ["restfavorite"],
-    // }),
-
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(__dirname, "src/public/"),
-    //       to: path.resolve(__dirname, "dist/"),
-    //     },
-    //   ],
     // }),
   ],
 };

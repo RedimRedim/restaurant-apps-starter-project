@@ -39,11 +39,11 @@ export class Restaurant {
 
     const contentDiv = document.querySelector(".content");
 
-    let foodsHtml = dataRestaurants.menus.foods
+    const foodsHtml = dataRestaurants.menus.foods
       .map((food) => `<div class="foodName">${food.name}</div>`)
       .join("");
 
-    let drinksHtml = dataRestaurants.menus.drinks
+    const drinksHtml = dataRestaurants.menus.drinks
       .map((drink) => `<div class="drinkName">${drink.name}</div>`)
       .join("");
 
@@ -60,7 +60,7 @@ export class Restaurant {
 
     contentDiv.innerHTML = `<div class="restName" id="name">${dataRestaurants.name}</div>
           <div class="restPictureId">
-                  <a href="/restdetail.html?id=${dataRestaurants.id}">
+                  <a href="#/detail/${dataRestaurants.id}">
                 <img src="https://restaurant-api.dicoding.dev/images/small/${dataRestaurants.pictureId}" alt="${dataRestaurants.name}">
                 </a>
               </div>
@@ -96,8 +96,8 @@ export class Restaurant {
       return;
     }
 
-    const contentDiv = document.querySelector("#mainContent");
-    let dataHtml = [];
+    const contentDiv = document.querySelector(".dataContainer");
+    const dataHtml = [];
 
     dataRestaurants.forEach((data) => {
       dataHtml.push(`
@@ -108,7 +108,7 @@ export class Restaurant {
           <div class="restCity" tabindex="0">${data.city}</div>
           </div>
           <div class="restPictureId" tabindex="0">
-              <a href="/restdetail.html?id=${data.id}">
+              <a href="#/detail/?id=${data.id}">
             <img src="https://restaurant-api.dicoding.dev/images/small/${data.pictureId}" alt="${data.name}">
             </a>
           </div>

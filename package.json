@@ -9,7 +9,9 @@
     "serve": "http-server dist",
     "test": "jest",
     "start": "webpack-dev-server --config webpack.dev.js --open",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "lint:fix": "eslint --fix ./src",
+    "lint": "eslint ./src"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -17,6 +19,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.7",
     "@babel/preset-env": "^7.25.7",
+    "@eslint/js": "^9.12.0",
     "@jest/globals": "^29.6.1",
     "@types/jest": "^29.5.3",
     "babel-jest": "^29.6.1",
@@ -24,7 +27,10 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.11.0",
+    "eslint": "^9.12.0",
+    "eslint-config-dicodingacademy": "^0.9.4",
     "fake-indexeddb": "^4.0.2",
+    "globals": "^15.11.0",
     "html-webpack-plugin": "^5.6.0",
     "http-server": "^14.1.1",
     "jest": "^29.6.1",

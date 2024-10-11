@@ -1,10 +1,31 @@
-export class UrlParser {
-  static parseActiveUrlWithCombiner() {
-    const url = window.location.href; // Get the full URL
-    const urlWithoutBase = url.replace(window.location.origin, ""); // Remove the base URL
-    const urlParts = urlWithoutBase.split("/").filter(Boolean); // Split and clean the URL parts
+const UrlParser = {
+  parseActiveUrlWithCombiner() {
+    const url = window.location.hash.slice(1).toLowerCase();
+    const splitedUrl = this._urlSplitter(url);
+    return this._urlCombiner(splitedUrl);
+  },
 
-    // Combine the parts back into a string and prepend a leading slash
-    return `/${urlParts.join("/")}`; // Ensure the result starts with a slash
-  }
-}
+  parseActiveUrlWithoutCombiner() {
+    const url = window.location.hash.slice(1).toLowerCase();
+    return this._urlSplitter(url);
+  },
+
+  _urlSplitter(url) {
+    const urlsSplits = url.split("/");
+    return {
+      resource: urlsSplits[1] || null,
+      id: urlsSplits[2] || null,
+      verb: urlsSplits[3] || null,
+    };
+  },
+
+  _urlCombiner(splitedUrl) {
+    return (
+      (splitedUrl.resource ? `/${splitedUrl.resource}` : "/") +
+      (splitedUrl.id ? "/:id" : "") +
+      (splitedUrl.verb ? `/${splitedUrl.verb}` : "")
+    );
+  },
+};
+
+export default UrlParser;
