@@ -1,11 +1,11 @@
-import { openDB } from 'idb';
-import CONFIG from '../globals/config.js';
+import { openDB } from "idb";
+import { CONFIG } from "../globals/config.js";
 
 const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG;
 
 const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
   upgrade(db) {
-    db.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' });
+    db.createObjectStore(OBJECT_STORE_NAME, { keyPath: "id" });
   },
 });
 
@@ -14,7 +14,7 @@ export const FavoriteRestIdb = {
     try {
       return (await dbPromise).get(OBJECT_STORE_NAME, id);
     } catch (error) {
-      console.error('ERROR getting restaurant', error);
+      console.error("ERROR getting restaurant", error);
     }
   },
 
@@ -22,7 +22,7 @@ export const FavoriteRestIdb = {
     try {
       return (await dbPromise).getAll(OBJECT_STORE_NAME);
     } catch (error) {
-      console.error('ERROR getting all restaurants', error);
+      console.error("ERROR getting all restaurants", error);
     }
   },
 
@@ -30,7 +30,7 @@ export const FavoriteRestIdb = {
     try {
       return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
     } catch (error) {
-      console.error('ERROR adding restaurant', error);
+      console.error("ERROR adding restaurant", error);
     }
   },
 
@@ -38,7 +38,7 @@ export const FavoriteRestIdb = {
     try {
       return (await dbPromise).delete(OBJECT_STORE_NAME, id);
     } catch (error) {
-      console.log('ERROR deleting restaurant', error);
+      console.log("ERROR deleting restaurant", error);
     }
   },
 

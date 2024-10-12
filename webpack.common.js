@@ -2,10 +2,11 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./src/component/main.js",
+    main: "./src/views/main.js",
   },
   output: {
     filename: "[name].bundle.js",
@@ -38,33 +39,53 @@ module.exports = {
 
     new CopyWebpackPlugin({
       patterns: [
-        { from: "src/images", to: "images" }, // Adjust according to your file structure
+        { from: "src/public", to: "public" }, // Adjust according to your file structure
       ],
     }),
 
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "./manifest.json"),
-          to: path.resolve(__dirname, "dist/"),
-        },
-        {
-          from: path.resolve(__dirname, "src/images/icons"), // if you have icons
-          to: path.resolve(__dirname, "dist/icons"),
-        },
-      ],
-    }),
-
-    // new HtmlWebpackPlugin({
-    //   filename: "restdetail.html",
-    //   template: path.resolve(__dirname, "./src/templates/restdetail.html"),
-    //   chunks: ["restdetail"],
-    // }),
-
-    // new HtmlWebpackPlugin({
-    //   filename: "restfavorite.html",
-    //   template: path.resolve(__dirname, "./src/templates/restfavorite.html"),
-    //   chunks: ["restfavorite"],
+    // new WorkboxPlugin.GenerateSW({
+    //   clientsClaim: true,
+    //   skipWaiting: true,
+    //   runtimeCaching: [
+    //     {
+    //       // Caching API responses
+    //       urlPattern: new RegExp(`${API_ENDPOINT}/(list|details|favorites)`), // Match multiple endpoints
+    //       handler: "NetworkFirst",
+    //       options: {
+    //         cacheName: "api-cache",
+    //         expiration: {
+    //           maxEntries: 50,
+    //           maxAgeSeconds: 7 * 24 * 60 * 60, // Cache for 1 week
+    //         },
+    //         cacheableResponse: {
+    //           statuses: [0, 200],
+    //         },
+    //       },
+    //     },
+    //     {
+    //       // Caching static assets like images, CSS, HTML (e.g., navbar, footer)
+    //       urlPattern: /\.(?:js|css|html|png|jpg|jpeg|gif|svg)$/,
+    //       handler: "CacheFirst",
+    //       options: {
+    //         cacheName: "static-assets-cache",
+    //         expiration: {
+    //           maxEntries: 100,
+    //           maxAgeSeconds: 30 * 24 * 60 * 60, // Cache for 30 days
+    //         },
+    //       },
+    //     },
+    //   ],
     // }),
   ],
 };
+// new HtmlWebpackPlugin({
+//   filename: "restdetail.html",
+//   template: path.resolve(__dirname, "./src/templates/restdetail.html"),
+//   chunks: ["restdetail"],
+// }),
+
+// new HtmlWebpackPlugin({
+//   filename: "restfavorite.html",
+//   template: path.resolve(__dirname, "./src/templates/restfavorite.html"),
+//   chunks: ["restfavorite"],
+// }),

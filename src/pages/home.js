@@ -1,4 +1,4 @@
-import { Restaurant } from "../utils/restaurant.js";
+import { Restaurant } from "../component/restaurant";
 
 export const home = {
   render() {
@@ -14,7 +14,6 @@ export const home = {
           <label for="restName">Name</label>
           <input type="text" id="restName" name="restName" required minlength=5>
         </div>
-        <p class="error-message" id="titleError"></p>
 
         <div class="rest-group">
           <label for="restDesc">Description</label>
@@ -33,11 +32,12 @@ export const home = {
 
         <div class="rest-group">
           <label for="restRating">Rating</label>
-          <input type="number" id="restRating" name="restRating" min="1" max="5" step="0.5" required>
-        </div>
+          <input type="number" id="restRating" name="restRating" min="1" max="5" step="0.5"     placeholder="Rate between 1 and 5"
+          aria-describedby="ratingHelp"
+          required></div>
 
 
-        <div class="rest-group rest-button-group">
+        <div class="rest-button-group">
           <button type="submit" id="saveRest">Save</button>
           <button type="button" id="cancelRest">Cancel</button>
         </div>

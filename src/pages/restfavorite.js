@@ -1,5 +1,5 @@
-import "regenerator-runtime"; /* for async await transpile */
-import { FavoriteRestIdb } from "../utils/indexdb.js";
+import 'regenerator-runtime'; /* for async await transpile */
+import { FavoriteRestIdb } from '../component/indexdb.js';
 export const restFavorite = {
   async render() {
     return `
@@ -29,7 +29,7 @@ export const restFavorite = {
       );
     });
 
-    document.querySelector(".favContainer").innerHTML = favDataHtml.join("");
-    console.log("this is a rest favorite");
+    document.querySelector('.favContainer').innerHTML = favDataHtml.join('');
+    console.log('this is a rest favorite');
   },
 };
