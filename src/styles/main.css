@@ -145,6 +145,7 @@ nav a:hover {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  margin-bottom: 1em;
   /* need adjustment later */
 }
 
@@ -165,6 +166,15 @@ nav a:hover {
   margin-bottom: 10px;
   background-color: rgb(245, 248, 255);
   border-radius: 10px;
+}
+
+.dataContainer {
+  width: 90%;
+  padding: 1em;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em;
 }
 
 .restItemBox {
@@ -251,15 +261,6 @@ nav a:hover {
   cursor: pointer;
 }
 
-footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.65);
-  padding: 1em;
-  background-color: rgb(240, 243, 250);
-  line-height: 2em;
-  text-align: center;
-}
-
 .form-content {
   display: grid;
   gap: 1.5em;
@@ -331,6 +332,8 @@ textarea:focus {
 }
 
 #addRestaurant {
+  display: block; /* Make the button a block element */
+  margin: 0 auto; /* Centers the button */
   padding: 1.5em;
   border: none;
   background-color: #1677ff;
@@ -340,5 +343,27 @@ textarea:focus {
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
-  margin: 0.5em 3em;
+}
+
+.favContainer {
+  padding: 1em;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr); /* Maximum of 3 columns */
+  max-width: 1200px; /* Set a max width so that 3 columns fit in */
+  gap: 1.5em;
+}
+
+.favContent {
+  margin: 0 auto;
+  width: 90%;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+.restPicture img {
+  width: 100%;
+  height: auto;
 }

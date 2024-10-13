@@ -9,7 +9,189 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 100px) and (max-width: 480px) {
+  .hero-element {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .hero-element img {
+    width: 100%;
+    height: auto; /* maintain aspect ratio */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .content-title {
+    padding: 1em;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .restItemBox {
+    width: 80%;
+    padding: 1em;
+    margin: 0 auto;
+  }
+
+  .restPictureId img {
+    width: 100%;
+    height: auto; /* maintain aspect ratio */
+  }
+
+  .showNav {
+    display: inline-block;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
+  #addRestaurant {
+    display: block; /* Make the button a block element */
+    margin: 0 auto; /* Centers the button */
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  .rest-button-group {
+    width: 100%;
+    padding: 0.5em;
+  }
+
+  textarea {
+    flex-grow: 1;
+    font-size: 1em;
+  }
+
+  .dataContainer,
+  .favContainer {
+    grid-template-columns: repeat(1, 1fr);
+    overflow: auto;
+  }
+
+  #restRating::placeholder,
+  input[type="file"] {
+    font-size: 9px !important;
+  }
+}
+
+/* Styles for small tablets in portrait */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-element {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .hero-element img {
+    width: 100%;
+    height: auto; /* maintain aspect ratio */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  .content {
+    row-gap: 1em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .restItemBox {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .restPictureId img {
+    width: 100%;
+    height: auto; /* maintain aspect ratio */
+  }
+
+  #restForm {
+    width: 75%;
+  }
+
+  .rest-button-group {
+    padding: 0.5em;
+  }
+
+  .dataContainer,
+  .favContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #addRestaurant {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+@media (min-width: 650px) {
+  /* .rest-group input {
+    font-size: 0.8em;
+    width: auto;
+  }
+
+  .app-bar_brand {
+    margin: 0;
+  }
+
+  .app-bar__navigation ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .app-bar__navigation.open {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: fit-content;
+    background-color: rgb(255, 255, 255, 0.9);
+    transition: all ease-in-out 0.2s;
+    -webkit-transition: all ease-in-out 0.2s;
+    -moz-transition: all ease-in-out 0.2s;
+    -ms-transition: all ease-in-out 0.2s;
+    -o-transition: all ease-in-out 0.2s;
+  }
+
+  .app-bar__navigation ul li {
+    margin-left: 2em;
+    display: flex;
+    flex-direction: column;
+  }
+  .app-bar .app-bar__navigation ul li a {
+    padding: 1em 0;
+  }
+
+  #saveRest,
+  #cancelRest {
+    width: 30%;
+  }
+
+  label {
+    margin: 0;
+  } */
+
+  .dataContainer,
+  .favContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 850px) {
+  .dataContainer,
+  .favContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 600px) {
   .app-bar .app-bar__menu {
     display: none;
   }
@@ -17,7 +199,6 @@
   .app-bar .app-bar__navigation {
     position: static;
     display: flex;
-    width: 100%; /* Adjust width */
   }
 
   #navigationDrawer ul {
@@ -76,108 +257,8 @@
   label {
     margin: 0;
   }
-}
 
-@media (min-width: 100px) and (max-width: 480px) {
-  .hero-element {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  .hero-element img {
-    width: 100%;
-    height: auto; /* maintain aspect ratio */
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
-
-  .content-title {
-    padding: 1em;
-  }
-
-  .content {
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-
-  .restItemBox {
-    width: 80%;
-    padding: 1em;
-    margin: 0 auto;
-  }
-
-  .restPictureId img {
-    width: 100%;
-    height: auto; /* maintain aspect ratio */
-  }
-
-  .showNav {
-    display: inline-block;
-  }
-
-  .hideOnMobile {
-    display: none;
-  }
-
-  #addRestaurant {
-    display: block; /* Make the button a block element */
-    margin: 0 auto; /* Centers the button */
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-
-  .rest-button-group {
-    width: 100%;
-    padding: 0.5em;
-  }
-
-  textarea {
-    flex-grow: 1;
-  }
-
-  textarea {
-    font-size: 1em;
-  }
-}
-
-/* Styles for small tablets in portrait */
-@media (min-width: 481px) and (max-width: 768px) {
-  .hero-element {
-    width: 100%;
-    padding: 0;
-    margin: 0 auto;
-  }
-
-  .hero-element img {
-    width: 100%;
-    height: auto; /* maintain aspect ratio */
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
-  .content {
-    row-gap: 1em;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .restItemBox {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .restPictureId img {
-    width: 100%;
-    height: auto; /* maintain aspect ratio */
-  }
-
-  #restForm {
-    width: 75%;
-  }
-
-  .rest-button-group {
-    padding: 0.5em;
+  .favContainer {
+    grid-template-columns: fr; /* Reduce to 1 column for even smaller screens */
   }
 }

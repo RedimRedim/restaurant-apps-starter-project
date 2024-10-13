@@ -1,3 +1,5 @@
+import { Restaurant } from "../component/restaurant.js";
+
 export const home = {
   render() {
     return `
@@ -94,10 +96,10 @@ export const home = {
   },
 
   async afterRender() {
-    //const restaurant = new Restaurant();
+    const restaurant = new Restaurant();
     this.handlingAddRestBtn();
     this.handlingSubmitRestForm();
-    //await restaurant.generateRestaurantHtml();
+    await restaurant.generateRestaurantHtml();
     console.log("welcome to homepage");
   },
 };

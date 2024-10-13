@@ -1,26 +1,26 @@
-import { FavoriteRestIdb } from './indexdb.js';
-import { API_ENDPOINT } from '../globals/config.js';
+import { FavoriteRestIdb } from "./indexdb.js";
+import { API_ENDPOINT } from "../globals/config.js";
 export class Restaurant {
   constructor() {}
 
   async getRestaurants() {
     try {
       const response = await fetch(`${API_ENDPOINT}/list`, {
-        method: 'GET',
+        method: "GET",
       });
 
       const apiData = await response.json();
 
       return apiData.restaurants;
     } catch (error) {
-      console.error('Error fetching data: ', error);
+      console.error("Error fetching data: ", error);
       return [];
     }
   }
 
   async getRestDetails(id) {
     const response = await fetch(`${API_ENDPOINT}/detail/${id}`, {
-      method: 'GET',
+      method: "GET",
     });
 
     const apiData = await response.json();
@@ -37,15 +37,15 @@ export class Restaurant {
         : `<button class="unlikeBtn favBtn" data-restid=${dataRestaurants.id}>Like</button>`
     }`;
 
-    const contentDiv = document.querySelector('.content');
+    const contentDiv = document.querySelector(".content");
 
     const foodsHtml = dataRestaurants.menus.foods
       .map((food) => `<div class="foodName">${food.name}</div>`)
-      .join('');
+      .join("");
 
     const drinksHtml = dataRestaurants.menus.drinks
       .map((drink) => `<div class="drinkName">${drink.name}</div>`)
-      .join('');
+      .join("");
 
     const reviewsHtml = dataRestaurants.customerReviews
       .map(
@@ -56,17 +56,23 @@ export class Restaurant {
                     <div class="restReviewDate" id="reviewDate">${review.date}</div>
           </div>`
       )
-      .join('');
+      .join("");
 
-    contentDiv.innerHTML = `<div class="restName" id="name">${dataRestaurants.name}</div>
+    contentDiv.innerHTML = `
+
+      <div class="restDetails">
+              <div class="restName" id="name">${dataRestaurants.name}</div>
+        <div class="restCity" id="city">${dataRestaurants.city}</div>
+            <div class="restAddress" id="address">${dataRestaurants.address}</div>
+               <div class="restRating" id="rating">${dataRestaurants.rating}</div>
+      </div>
+        <div class="restDesc" id="description">${dataRestaurants.description}</div>
           <div class="restPictureId">
                   <a href="#/detail/${dataRestaurants.id}">
                 <img src="https://restaurant-api.dicoding.dev/images/small/${dataRestaurants.pictureId}" alt="${dataRestaurants.name}">
                 </a>
               </div>
-                <div class="restAddress" id="address">${dataRestaurants.address}</div>
-                <div class="restCity" id="city">${dataRestaurants.city}</div>
-                <div class="restDesc" id="description">${dataRestaurants.description}</div>
+              
                 <div class="restMenus" id="menus">
                     <div class="restFoods" id="foods">
                        ${foodsHtml}
@@ -75,7 +81,7 @@ export class Restaurant {
                       ${drinksHtml}
                     </div>
                 </div>
-                <div class="restRating" id="rating">${dataRestaurants.rating}</div>
+             
                 <div class="restReviews" id="customerReviews">
                  ${reviewsHtml}
                 </div>
@@ -92,11 +98,11 @@ export class Restaurant {
     console.log(dataRestaurants);
 
     if (dataRestaurants.length === 0) {
-      window.alert('ERROR FETCHING DATA');
+      window.alert("ERROR FETCHING DATA");
       return;
     }
 
-    const contentDiv = document.querySelector('.dataContainer');
+    const contentDiv = document.querySelector(".dataContainer");
     const dataHtml = [];
 
     dataRestaurants.forEach((data) => {
@@ -116,6 +122,6 @@ export class Restaurant {
         </article>`);
     });
 
-    contentDiv.innerHTML = dataHtml.join('');
+    contentDiv.innerHTML = dataHtml.join("");
   }
 }
