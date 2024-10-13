@@ -1,17 +1,18 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import daStyle from "eslint-config-dicodingacademy";
 
 export default [
-  { languageOptions: { globals: globals.browser } },
-  pluginJs.configs.recommended,
-  daStyle,
-
   {
-    rules: {
-      "space-infix-ops": ["error"],
-      "brace-style": ["error", "1tbs"],
-      "space-before-blocks": ["error", "always"],
+    languageOptions: {
+      globals: {
+        ...globals.browser, // Keep browser globals
+        ...globals.node, // Add Node.js globals if needed
+      },
+      parserOptions: {
+        ecmaVersion: 2020, // Specify the ECMAScript version
+        sourceType: "module", // Use "module" for ES modules
+      },
     },
   },
+  pluginJs.configs.recommended,
 ];

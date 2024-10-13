@@ -1,15 +1,12 @@
-import { Restaurant } from "../component/restaurant";
-
 export const home = {
   render() {
     return `
 
     <section>
 
-      <div class="content-title" id="exploreContent">Explore Restaurant</div>
-
-      <button id="addRestaurant">Add Restaurant</button>
+    <button id="addRestaurant">Add Restaurant</button>
       <form id="restForm" style="display:none">
+        <h3 style="text-align:center">Add Restaurant</h3>
         <div class="rest-group">
           <label for="restName">Name</label>
           <input type="text" id="restName" name="restName" required minlength=5>
@@ -43,6 +40,10 @@ export const home = {
         </div>
       </form>
 
+
+      <div class="content-title" id="exploreContent">Explore Restaurant</div>
+
+      
       <div class="dataContainer">
         <!-- automatically generate through js box content-->
       </div>
@@ -54,9 +55,10 @@ export const home = {
 
   handlingAddRestBtn() {
     const addRestElement = document.getElementById("addRestaurant");
+    const restForm = document.getElementById("restForm"); // Declare restForm here
 
     addRestElement.addEventListener("click", () => {
-      const currentDisplay = document.getElementById("restForm").style.display;
+      const currentDisplay = restForm.style.display;
       if (currentDisplay === "none" || currentDisplay === "") {
         restForm.style.display = "block"; // Show the form
         addRestElement.textContent = "Hide Button";
@@ -92,10 +94,10 @@ export const home = {
   },
 
   async afterRender() {
-    const restaurant = new Restaurant();
+    //const restaurant = new Restaurant();
     this.handlingAddRestBtn();
     this.handlingSubmitRestForm();
-    await restaurant.generateRestaurantHtml();
+    //await restaurant.generateRestaurantHtml();
     console.log("welcome to homepage");
   },
 };

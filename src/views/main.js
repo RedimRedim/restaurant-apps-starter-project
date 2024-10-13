@@ -2,6 +2,11 @@ import "regenerator-runtime"; /* for async await transpile */
 import "../styles/main.css";
 import "../styles/mediastyles.css";
 import App from "./app.js";
+// import { RestCustomFooter } from "../component/custom-footer.js";
+
+// // Init custom footer
+// const customFooter = new RestCustomFooter();
+// customFooter.renderFooter();
 
 //rendering urlParser
 const app = new App({

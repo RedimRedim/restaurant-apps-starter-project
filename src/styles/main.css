@@ -12,7 +12,7 @@ body {
   padding: 0;
   margin: 0;
   color: #000;
-  background-color: antiquewhite;
+  background-color: aliceblue;
 }
 
 .logo {
@@ -21,8 +21,6 @@ body {
 }
 
 .app-bar {
-  /* padding: 1em 1rem;  Add padding to the left and right */
-  padding: 0.5em 1em;
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -47,34 +45,56 @@ body {
   cursor: pointer;
 }
 
-.app-bar .app-bar__brand {
+.app-bar_brand {
+  margin-left: 2em;
+  width: 200px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.app-bar .app-bar__navigation {
+.app-bar_brand a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+.app-bar__navigation {
   position: absolute;
   top: 50px;
   left: -180px;
   width: 150px;
-  transition: all 0.3s;
-  padding: 8px;
+  height: 80px;
   overflow: hidden;
-  background-color: white; /* Ensure background is set */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional for visibility */
+  flex-grow: 1;
+  z-index: 999;
 }
 
-.app-bar .app-bar__navigation.open {
+.app-bar__navigation {
+  justify-content: flex-end;
+  margin-right: 2em;
+}
+
+.app-bar__navigation.open {
   left: 0;
 }
 
+.app-bar__navigation ul {
+  width: 300px;
+  justify-content: flex-end;
+  list-style-type: none;
+}
+
+.app-bar__navigation ul li {
+  flex-grow: 1;
+  align-self: center;
+}
+
 .app-bar .app-bar__navigation ul li a {
-  display: inline-block;
   text-decoration: none;
   color: black;
   padding: 8px;
-  margin-bottom: 5px;
-  width: 100%;
 }
 
 .skip-link {
@@ -174,7 +194,7 @@ nav a:hover {
 }
 
 .rest-group input {
-  width: 100%;
+  width: auto;
   align-items: center;
   align-content: center;
   font-size: 1.2em;
@@ -197,10 +217,9 @@ nav a:hover {
 }
 
 #restRating {
-  width: 35% !important;
+  width: 50% !important;
   flex-grow: 0 !important;
   color: rgb(13, 110, 253);
-  font-size: 1.2em;
 }
 
 #cancelRest,
@@ -265,6 +284,12 @@ textarea {
   margin-bottom: 15px; /* Space between form groups */
 }
 
+input:focus,
+textarea:focus {
+  border: 3px solid rgb(13, 110, 253, 0.5);
+  outline: none;
+}
+
 input[type="file"] {
   padding: 0; /* Adjust padding for file input */
 }
@@ -274,18 +299,20 @@ input[type="number"] {
 }
 
 label {
-  padding: 1em;
   font-weight: bold; /* Makes the label text bold */
   margin-bottom: 5px; /* Space between label and input */
 }
 
 input[type="text"],
 input[type="number"],
-input[type="file"] {
-  border: 1px solid #ccc;
-  border-radius: 4px;
+input[type="file"],
+textarea:focus {
   padding: 10px;
-  font-size: 1em;
+  font-size: 1.2em;
+}
+
+#restRating::placeholder {
+  font-size: 0.8em !important;
 }
 
 .restContent {
@@ -293,12 +320,14 @@ input[type="file"] {
 }
 
 .rest-button-group {
+  margin-top: 2em;
   display: flex;
 }
 
 #saveRest,
 #cancelRest {
   padding: 1em;
+  width: 30%;
 }
 
 #addRestaurant {
