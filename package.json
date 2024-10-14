@@ -43,6 +43,7 @@
     "workbox-webpack-plugin": "^7.1.0"
   },
   "dependencies": {
+    "animejs": "^3.2.2",
     "idb": "^8.0.0",
     "nanoid": "^5.0.7",
     "regenerator-runtime": "^0.14.1",

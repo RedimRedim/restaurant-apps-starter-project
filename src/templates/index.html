@@ -13,6 +13,22 @@
   <!-- Poppins-->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <style>
+    .spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background-color: #1677ff;
+      /* Change as needed */
+    }
+  </style>
 
 </head>
 
@@ -42,9 +58,16 @@
     <img src="../public/hero-image_2.jpg" alt="restaurant">
   </div>
 
+  <div id="loading" class="spinner" style="display: none">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
 
   <!-- render through index.js -->
   <main id="mainContent">
+
+
   </main>
 
   <rest-custom-footer></rest-custom-footer>

@@ -1,9 +1,11 @@
 import { FavoriteRestIdb } from "./indexdb.js";
 import { API_ENDPOINT } from "../globals/config.js";
+import { showLoading, hideLoading } from "../utils/loading.js";
 export class Restaurant {
   constructor() {}
 
   async getRestaurants() {
+    showLoading();
     try {
       const response = await fetch(`${API_ENDPOINT}/list`, {
         method: "GET",
@@ -15,17 +17,26 @@ export class Restaurant {
     } catch (error) {
       console.error("Error fetching data: ", error);
       return [];
+    } finally {
+      hideLoading();
     }
   }
 
   async getRestDetails(id) {
-    const response = await fetch(`${API_ENDPOINT}/detail/${id}`, {
-      method: "GET",
-    });
+    showLoading();
+    try {
+      const response = await fetch(`${API_ENDPOINT}/detail/${id}`, {
+        method: "GET",
+      });
 
-    const apiData = await response.json();
+      const apiData = await response.json();
 
-    return apiData.restaurant;
+      return apiData.restaurant;
+    } catch (error) {
+      alert("Error fetching resturant details,");
+    } finally {
+      hideLoading();
+    }
   }
 
   async generateRestDetailHtml(id) {
@@ -37,7 +48,7 @@ export class Restaurant {
         : `<button class="unlikeBtn favBtn" data-restid=${dataRestaurants.id}>Like</button>`
     }`;
 
-    const contentDiv = document.querySelector(".content");
+    const contentDiv = document.querySelector(".detail-content");
 
     const foodsHtml = dataRestaurants.menus.foods
       .map((food) => `<div class="foodName">${food.name}</div>`)
@@ -51,42 +62,62 @@ export class Restaurant {
       .map(
         (review) =>
           `<div class="reviewContent">
+          <div class="reviewPersonDetails">
           <div class="restReviewName" id="reviewName">${review.name}</div>
-                    <div class="restReviewReview" id="review">${review.review}</div>
-                    <div class="restReviewDate" id="reviewDate">${review.date}</div>
-          </div>`
+          <div id="reviewDate"><i>${review.date}</i></div>
+          </div>
+
+
+          <div class="restReviewReview" id="review"><cite>${review.review}</cite></div>
+          
+          </div>
+          `
       )
       .join("");
 
     contentDiv.innerHTML = `
 
-      <div class="restDetails">
-              <div class="restName" id="name">${dataRestaurants.name}</div>
-        <div class="restCity" id="city">${dataRestaurants.city}</div>
-            <div class="restAddress" id="address">${dataRestaurants.address}</div>
-               <div class="restRating" id="rating">${dataRestaurants.rating}</div>
+      <div class="restDetails item1">
+              <div class="restName" id="name">Name: ${dataRestaurants.name}</div>
+        <div class="restCity" id="city">City: ${dataRestaurants.city}</div>
+            <div class="restAddress" id="address">Address: ${dataRestaurants.address}</div>
+               <div class="restRating" id="rating">Rating: ${dataRestaurants.rating}</div>
+                ${buttonHtml}
+
       </div>
-        <div class="restDesc" id="description">${dataRestaurants.description}</div>
-          <div class="restPictureId">
-                  <a href="#/detail/${dataRestaurants.id}">
+
+      
+        
+        <div class="restPictureId item2">
                 <img src="https://restaurant-api.dicoding.dev/images/small/${dataRestaurants.pictureId}" alt="${dataRestaurants.name}">
                 </a>
-              </div>
+      </div>
+
+        <div class="restDesc item3" id="description">${dataRestaurants.description}
+        </div>
               
-                <div class="restMenus" id="menus">
+                <div class="restMenus item4" id="menus">
+                <div class="menuContent">
+                    <div class="foods">
+                    <h3>Foods</h3>
                     <div class="restFoods" id="foods">
                        ${foodsHtml}
                     </div>
+                    </div>
+
+                    <div class="drinks">
+                    <h3>Drinks</h3>
                     <div class="restDrinks" id="drinks">
                       ${drinksHtml}
                     </div>
+                    </div>
                 </div>
-             
-                <div class="restReviews" id="customerReviews">
+                </div>
+                <div class="restReviews item5" id="customerReviews">
+                <h3 style="text-align:center; padding:0;">Reviews:</h3>
                  ${reviewsHtml}
                 </div>
 
-                ${buttonHtml}
                 `;
 
     return dataRestaurants;

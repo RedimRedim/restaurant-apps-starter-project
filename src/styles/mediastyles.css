@@ -1,14 +1,3 @@
-@media (min-width: 1200px) {
-  .hero-element img {
-    width: 1000px;
-    height: auto; /* maintain aspect ratio */
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    /* need adjustment later */
-  }
-}
-
 @media (min-width: 100px) and (max-width: 480px) {
   .hero-element {
     width: 100%;
@@ -34,7 +23,6 @@
   }
 
   .restItemBox {
-    width: 80%;
     padding: 1em;
     margin: 0 auto;
   }
@@ -69,15 +57,18 @@
     font-size: 1em;
   }
 
-  .dataContainer,
-  .favContainer {
+  .dataContainer {
     grid-template-columns: repeat(1, 1fr);
-    overflow: auto;
+    width: 100%;
+    padding: 0;
   }
 
   #restRating::placeholder,
   input[type="file"] {
     font-size: 9px !important;
+  }
+  .restDetails {
+    flex-direction: column;
   }
 }
 
@@ -112,16 +103,11 @@
     height: auto; /* maintain aspect ratio */
   }
 
-  #restForm {
-    width: 75%;
-  }
-
   .rest-button-group {
     padding: 0.5em;
   }
 
-  .dataContainer,
-  .favContainer {
+  .dataContainer {
     grid-template-columns: repeat(1, 1fr);
   }
 
@@ -129,85 +115,10 @@
     margin-top: 1em;
     margin-bottom: 1em;
   }
-}
 
-@media (min-width: 650px) {
-  /* .rest-group input {
-    font-size: 0.8em;
-    width: auto;
-  }
-
-  .app-bar_brand {
-    margin: 0;
-  }
-
-  .app-bar__navigation ul {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-
-  .app-bar__navigation.open {
-    display: flex;
+  .restDetails {
     flex-direction: column;
-    justify-content: flex-start;
-    height: fit-content;
-    background-color: rgb(255, 255, 255, 0.9);
-    transition: all ease-in-out 0.2s;
-    -webkit-transition: all ease-in-out 0.2s;
-    -moz-transition: all ease-in-out 0.2s;
-    -ms-transition: all ease-in-out 0.2s;
-    -o-transition: all ease-in-out 0.2s;
-  }
-
-  .app-bar__navigation ul li {
-    margin-left: 2em;
-    display: flex;
-    flex-direction: column;
-  }
-  .app-bar .app-bar__navigation ul li a {
-    padding: 1em 0;
-  }
-
-  #saveRest,
-  #cancelRest {
-    width: 30%;
-  }
-
-  label {
-    margin: 0;
-  } */
-
-  .dataContainer,
-  .favContainer {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 850px) {
-  .dataContainer,
-  .favContainer {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 600px) {
-  .app-bar .app-bar__menu {
-    display: none;
-  }
-
-  .app-bar .app-bar__navigation {
-    position: static;
-    display: flex;
-  }
-
-  #navigationDrawer ul {
-    display: flex;
-    flex-direction: row;
-  }
-
-  label {
-    margin: 0;
+    column-gap: 0.5em;
   }
 }
 
@@ -254,11 +165,83 @@
     width: 30%;
   }
 
+  #restForm {
+    width: 75%;
+  }
+
   label {
     margin: 0;
   }
 
   .favContainer {
     grid-template-columns: fr; /* Reduce to 1 column for even smaller screens */
+  }
+
+  .dataContainer {
+    padding: 0;
+  }
+
+  .detail-content {
+    grid-template-columns: repeat(2, 1fr); /* Create 3 equal columns */
+    grid-template-areas:
+      "item1  item1" /* Span item1 across 2 columns */
+      "item2 item2"
+      "item3 item3"
+      "item4  item4" /* Span item4 across 2 columns */
+      "item5  item5"; /* Span item5 across 2 columns */
+    gap: 1em; /* Optional: Adds space between grid items */
+  }
+
+  .restReviews {
+    gap: 1em;
+  }
+
+  .restDesc {
+    max-height: 300px;
+    overflow: auto;
+    word-wrap: break-word; /* Break long words onto the next line */
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-element img {
+    width: 1000px;
+    height: auto; /* maintain aspect ratio */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    /* need adjustment later */
+  }
+}
+
+@media (min-width: 650px) {
+  .dataContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 950px) {
+  .dataContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 600px) {
+  .app-bar .app-bar__menu {
+    display: none;
+  }
+
+  .app-bar .app-bar__navigation {
+    position: static;
+    display: flex;
+  }
+
+  #navigationDrawer ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  label {
+    margin: 0;
   }
 }

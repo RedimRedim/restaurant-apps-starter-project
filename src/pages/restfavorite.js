@@ -21,12 +21,14 @@ export const restFavorite = {
         ` 
     <div class="favContent">
       <div class="restDetails">
-        <div class="resttName" id="name">${restaurant.data.name}</div>
-        <div class="restRating">${restaurant.data.rating}</div>
-        <div class="restCity">${restaurant.data.city}</div>
+        <div class="resttName" id="name">Name: ${restaurant.data.name}</div>
+        <div class="restRating">Rating: ${restaurant.data.rating}</div>
+        <div class="restCity">City: ${restaurant.data.city}</div>
       </div>
-           <div class="restPicture">
-                 <img src="https://restaurant-api.dicoding.dev/images/small/${restaurant.data.pictureId}" alt="${restaurant.data.name}">
+           <div class="restPictureId">
+              <a href="#/detail/?id=${restaurant.data.id}">
+            <img src="https://restaurant-api.dicoding.dev/images/small/${restaurant.data.pictureId}" alt="${restaurant.data.name}">
+            </a>
             </div>
            <div class="restDescription">${restaurant.data.description}</div>
     </div>  

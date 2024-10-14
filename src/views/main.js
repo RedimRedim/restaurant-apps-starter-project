@@ -2,7 +2,6 @@ import "regenerator-runtime"; /* for async await transpile */
 import "../styles/main.css";
 import "../styles/mediastyles.css";
 import App from "./app.js";
-import { RestCustomFooter } from "../component/custom-footer.js";
 
 //rendering urlParser
 const app = new App({
@@ -23,6 +22,7 @@ window.addEventListener("load", () => {
 // if ("serviceWorker" in navigator) {
 //   window.addEventListener("load", () => {
 //     navigator.serviceWorker
+
 //       .register("/service-worker.js")
 //       .then((registration) => {
 //         console.log(
