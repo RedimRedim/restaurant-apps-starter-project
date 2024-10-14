@@ -1,6 +1,6 @@
-export const API_ENDPOINT = "https://restaurant-api.dicoding.dev";
+const API_ENDPOINT = "https://restaurant-api.dicoding.dev";
 
-export const CONFIG = {
+const CONFIG = {
   KEY: "",
   BASE_URL: "https://restaurant-api.dicoding.dev",
   DEFAULT_LANGUAGE: "en-us",
@@ -8,4 +8,9 @@ export const CONFIG = {
   DATABASE_NAME: "restaurant_db",
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: "restfavorite",
+};
+
+module.exports = {
+  API_ENDPOINT,
+  CONFIG,
 };

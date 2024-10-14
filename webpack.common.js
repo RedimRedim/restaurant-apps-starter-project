@@ -1,3 +1,5 @@
+const { API_ENDPOINT } = require("./src/globals/config.js");
+
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -43,39 +45,39 @@ module.exports = {
       ],
     }),
 
-    // new WorkboxPlugin.GenerateSW({
-    //   clientsClaim: true,
-    //   skipWaiting: true,
-    //   runtimeCaching: [
-    //     {
-    //       // Caching API responses
-    //       urlPattern: new RegExp(`${API_ENDPOINT}/(list|details|favorites)`), // Match multiple endpoints
-    //       handler: "NetworkFirst",
-    //       options: {
-    //         cacheName: "api-cache",
-    //         expiration: {
-    //           maxEntries: 50,
-    //           maxAgeSeconds: 7 * 24 * 60 * 60, // Cache for 1 week
-    //         },
-    //         cacheableResponse: {
-    //           statuses: [0, 200],
-    //         },
-    //       },
-    //     },
-    //     {
-    //       // Caching static assets like images, CSS, HTML (e.g., navbar, footer)
-    //       urlPattern: /\.(?:js|css|html|png|jpg|jpeg|gif|svg)$/,
-    //       handler: "CacheFirst",
-    //       options: {
-    //         cacheName: "static-assets-cache",
-    //         expiration: {
-    //           maxEntries: 100,
-    //           maxAgeSeconds: 30 * 24 * 60 * 60, // Cache for 30 days
-    //         },
-    //       },
-    //     },
-    //   ],
-    // }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+      runtimeCaching: [
+        {
+          // Caching API responses
+          urlPattern: new RegExp(`${API_ENDPOINT}/(list|details|favorites)`), // Match multiple endpoints
+          handler: "NetworkFirst",
+          options: {
+            cacheName: "api-cache",
+            expiration: {
+              maxEntries: 50,
+              maxAgeSeconds: 7 * 24 * 60 * 60, // Cache for 1 week
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+          },
+        },
+        {
+          // Caching static assets like images, CSS, HTML (e.g., navbar, footer)
+          urlPattern: /\.(?:js|css|html|png|jpg|jpeg|gif|svg)$/,
+          handler: "CacheFirst",
+          options: {
+            cacheName: "static-assets-cache",
+            expiration: {
+              maxEntries: 100,
+              maxAgeSeconds: 30 * 24 * 60 * 60, // Cache for 30 days
+            },
+          },
+        },
+      ],
+    }),
   ],
 };
 // new HtmlWebpackPlugin({
