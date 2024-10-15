@@ -1,7 +1,10 @@
 import { Restaurant } from "../component/restaurant.js";
 import { getQueryParameter } from "../utils/queryparams.js";
+import { Reviews } from "../component/reviews.js";
 const restaurant = new Restaurant();
+const reviews = new Reviews();
 import { FavoriteRestIdb } from "../component/indexdb.js";
+
 export const restDetail = {
   render() {
     return `
@@ -22,8 +25,43 @@ export const restDetail = {
   changeLikeBtnColor() {
     const btn = document.querySelector(".restDetails > button");
     const btnText = btn.textContent;
-
+    const addReviewBtn = document.querySelector(".restReviews > button");
+    const addReviewText = addReviewBtn.textContent;
     btn.style.backgroundColor = btnText === "Unlike" ? "#424242" : "#1677ff";
+
+    if (addReviewText === "Add Review") {
+      addReviewBtn.textContent = "Add Review";
+      addReviewBtn.style.backgroundColor = "#1677ff";
+    } else {
+      addReviewBtn.textContent = "Edit Review";
+      addReviewBtn.style.backgroundColor = "#424242";
+    }
+  },
+
+  addReviewClickListener() {
+    this.changeLikeBtnColor();
+    const addReviewBtn = document.querySelector("#addReview");
+    addReviewBtn.addEventListener("click", () => {
+      const currentDisplay =
+        document.querySelector("#customerReview").style.display;
+      if (currentDisplay === "none" || currentDisplay === "") {
+        document.querySelector("#customerReview").style.display = "block"; // Show the form
+        addReviewBtn.textContent = "Hide Review";
+        addReviewBtn.style.backgroundColor = "#424242";
+      } else {
+        document.querySelector("#customerReview").style.display = "none"; // Hide the form
+        addReviewBtn.textContent = "Add Review";
+        addReviewBtn.style.backgroundColor = "#1677ff";
+      }
+    });
+  },
+
+  handlingSubmitRewiewFormListener() {
+    const addReviewBtn = document.querySelector("#submitBtn");
+    addReviewBtn.addEventListener("click", async (event) => {
+      event.preventDefault();
+      await reviews.postReview();
+    });
   },
 
   likeClickListener() {
@@ -54,12 +92,15 @@ export const restDetail = {
 
   initListener() {
     this.likeClickListener();
+    this.addReviewClickListener();
   },
 
   async afterRender() {
     const hrefId = getQueryParameter("id");
+
     await restaurant.generateRestDetailHtml(hrefId);
     this.changeLikeBtnColor();
     this.initListener();
+    this.handlingSubmitRewiewFormListener();
   },
 };

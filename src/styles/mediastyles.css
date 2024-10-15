@@ -70,6 +70,13 @@
   .restDetails {
     flex-direction: column;
   }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  textarea:focus {
+    font-size: 1em;
+  }
 }
 
 /* Styles for small tablets in portrait */
@@ -200,6 +207,10 @@
     max-height: 300px;
     overflow: auto;
     word-wrap: break-word; /* Break long words onto the next line */
+  }
+
+  .form-group {
+    width: 90%;
   }
 }
 

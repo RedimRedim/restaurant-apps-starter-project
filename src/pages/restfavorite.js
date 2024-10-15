@@ -19,7 +19,7 @@ export const restFavorite = {
     favRestaurant.forEach((restaurant) => {
       favDataHtml.push(
         ` 
-    <div class="favContent">
+    <div class="favContent" tabindex="0">
       <div class="restDetails">
         <div class="resttName" id="name">Name: ${restaurant.data.name}</div>
         <div class="restRating">Rating: ${restaurant.data.rating}</div>

@@ -33,7 +33,7 @@ export class Restaurant {
 
       return apiData.restaurant;
     } catch (error) {
-      alert("Error fetching resturant details,");
+      console.error("Error fetching resturant details,", error);
     } finally {
       hideLoading();
     }
@@ -77,7 +77,7 @@ export class Restaurant {
 
     contentDiv.innerHTML = `
 
-      <div class="restDetails item1">
+      <div class="restDetails item1" tabindex="0">
               <div class="restName" id="name">Name: ${dataRestaurants.name}</div>
         <div class="restCity" id="city">City: ${dataRestaurants.city}</div>
             <div class="restAddress" id="address">Address: ${dataRestaurants.address}</div>
@@ -88,15 +88,15 @@ export class Restaurant {
 
       
         
-        <div class="restPictureId item2">
+        <div class="restPictureId item2" tabindex="0">
                 <img src="https://restaurant-api.dicoding.dev/images/small/${dataRestaurants.pictureId}" alt="${dataRestaurants.name}">
                 </a>
       </div>
 
-        <div class="restDesc item3" id="description">${dataRestaurants.description}
+        <div class="restDesc item3 tabindex="0"" id="description">${dataRestaurants.description}
         </div>
               
-                <div class="restMenus item4" id="menus">
+                <div class="restMenus item4" id="menus" tabindex="0">
                 <div class="menuContent">
                     <div class="foods">
                     <h3>Foods</h3>
@@ -113,8 +113,23 @@ export class Restaurant {
                     </div>
                 </div>
                 </div>
-                <div class="restReviews item5" id="customerReviews">
+                <div class="restReviews item5" id="customerReviews" tabindex="0" >
                 <h3 style="text-align:center; padding:0;">Reviews:</h3>
+
+                <button id="addReview">Add Review</button>
+                <form id="customerReview" style="display: none;">
+                   <div class="form-group">
+                  <label for="customerReview">Name:</label>
+                  <input type="text" id="customerName" name="customerName" required minlength=5>
+                  </div>
+
+                  <div class="form-group">
+                  <label for="customerReview">Detail:</label>
+                  <textarea id="customerReviewDesc" name="customerReview" required></textarea>
+                  </div>
+
+                   <button type="submit" id="submitBtn">Submit</button>
+                </form>
                  ${reviewsHtml}
                 </div>
 
