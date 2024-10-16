@@ -1,5 +1,7 @@
 import "regenerator-runtime"; /* for async await transpile */
 import { FavoriteRestIdb } from "../component/indexdb.js";
+import {initSkipLink} from "../utils/skip-link.js";
+
 export const restFavorite = {
   async render() {
     return `
@@ -12,7 +14,12 @@ export const restFavorite = {
         </div>`;
   },
 
+  initListener() {
+    initSkipLink();
+  },
+
   async afterRender() {
+    this.initListener();
     const favRestaurant = await FavoriteRestIdb.getAllRestaurants();
 
     const favDataHtml = [];
