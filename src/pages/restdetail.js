@@ -4,7 +4,6 @@ import { Reviews } from "../component/reviews.js";
 const restaurant = new Restaurant();
 const reviews = new Reviews();
 import { FavoriteRestIdb } from "../component/indexdb.js";
-import { initSkipLink } from "../utils/skip-link.js";
 
 export const restDetail = {
   render() {
@@ -94,7 +93,6 @@ export const restDetail = {
   initListener() {
     this.likeClickListener();
     this.addReviewClickListener();
-    initSkipLink();
   },
 
   async afterRender() {

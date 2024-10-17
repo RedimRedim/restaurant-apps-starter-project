@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
   app.renderPage();
 });
 
-// // //Setup SW in order to do caching
+// //Setup SW in order to do caching
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker

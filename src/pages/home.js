@@ -1,5 +1,4 @@
 import { Restaurant } from "../component/restaurant.js";
-import { initSkipLink } from "../utils/skip-link.js";
 
 export const home = {
   render() {
@@ -96,15 +95,10 @@ export const home = {
     });
   },
 
-  initListener() {
-    this.handlingAddRestBtn();
-    this.handlingSubmitRestForm();
-    initSkipLink();
-  },
-
   async afterRender() {
     const restaurant = new Restaurant();
-    this.initListener();
+    this.handlingAddRestBtn();
+    this.handlingSubmitRestForm();
     await restaurant.generateRestaurantHtml();
     console.log("welcome to homepage");
   },

@@ -1,7 +1,6 @@
 import DrawerInitiator from "../utils/drawer-initiator";
 import UrlParser from "../routes/urlparser";
 import { routes } from "../component/routes";
-import { initSkipLink } from "../utils/skip-link"; // Import skip link function
 
 class App {
   constructor({ button, drawer, content }) {
@@ -10,8 +9,6 @@ class App {
     this._content = content;
 
     this._initialAppShell();
-
-    initSkipLink(); // Call the skip link function
   }
 
   _initialAppShell() {
