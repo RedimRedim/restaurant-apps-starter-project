@@ -161,7 +161,7 @@ export class Restaurant {
           </div>
           <div class="restPictureId" tabindex="0">
               <a href="#/detail/?id=${data.id}">
-            <img src="https://restaurant-api.dicoding.dev/images/small/${data.pictureId}" alt="${data.name}">
+            <img class ="lazyload" data-src="https://restaurant-api.dicoding.dev/images/small/${data.pictureId}" alt="${data.name}">
             </a>
           </div>
           <div class="restDescription" tabindex="0">${data.description}</div>
