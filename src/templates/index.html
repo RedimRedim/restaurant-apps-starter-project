@@ -55,7 +55,10 @@
   </header>
 
   <div class="hero-element">
-    <img src="../public/hero-image_2.jpg" alt="restaurant">
+    <picture>
+      <source media="(max-width: 600px)" srcset="./images/hero-image_2-small.jpg">
+      <img src="images/hero-image_2-large.jpg" alt="Hero Image" >
+  </picture>
   </div>
 
   <div id="loading" class="spinner" style="display: none">
