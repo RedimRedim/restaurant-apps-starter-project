@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <link rel="manifest" href="../public/app.webmanifest.json">
+  <link rel="manifest" href="app.webmanifest.json">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,9 +56,11 @@
 
   <div class="hero-element">
     <picture>
-      <source media="(max-width: 600px)" srcset="./images/hero-image_2-small.jpg">
-      <img src="images/hero-image_2-large.jpg" alt="Hero Image" >
-  </picture>
+      <!-- This source will be used for screens up to 600px -->
+      <source media="(max-width: 600px)" srcset="./dist/images/hero-image_2-small.jpg">
+      <!-- This img will be used for larger screens -->
+      <img src="./dist/images/hero-image_2-large.jpg" alt="Hero Image">
+    </picture>
   </div>
 
   <div id="loading" class="spinner" style="display: none">
