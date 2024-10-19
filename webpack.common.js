@@ -1,5 +1,6 @@
 const { API_ENDPOINT } = require("./src/globals/config.js");
-
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -32,13 +33,25 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    splitChunks: {
+      chunks: "all", // This splits both synchronous and asynchronous imports
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
+  },
   plugins: [
     new CleanWebpackPlugin(),
 
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: path.resolve(__dirname, "./src/templates/index.html"),
-      chunks: ["main"],
+      chunks: ["main", "vendors"],
     }),
 
     new CopyWebpackPlugin({
@@ -53,14 +66,25 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/public"),
-          to: path.resolve(__dirname, "dist"),
-          globOptions: {
-            ignore: ["images/**/*.jpg"], // Adjust as needed to ignore only specific images
-          },
+          from: path.resolve(__dirname, "src/public/images"),
+          to: path.resolve(__dirname, "dist/images"),
         },
       ],
     }),
+
+    //new BundleAnalyzerPlugin(),
+
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, "src/public"),
+    //       to: path.resolve(__dirname, "dist"),
+    //       globOptions: {
+    //         ignore: ["images/**/*.jpg"], // Adjust as needed to ignore only specific images
+    //       },
+    //     },
+    //   ],
+    // }),
 
     // new WorkboxPlugin.GenerateSW({
     //   clientsClaim: true,
