@@ -311,7 +311,6 @@ input[type="number"] {
 label {
   font-weight: bold; /* Makes the label text bold */
   margin-bottom: 5px; /* Space between label and input */
-  align-self: center;
 }
 
 input[type="text"],

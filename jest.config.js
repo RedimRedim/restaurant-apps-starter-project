@@ -1,22 +1,11 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
-/** @type {import('jest').Config} */
-const config = {
-  testMatch: ["**/tests/**/*.test.[jt]s?(x)"],
-
-  // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ["fake-indexeddb/auto"],
-
-  // The test environment that will be used for testing
-  testEnvironment: "jsdom",
-
-  // A map from regular expressions to paths to transformers
+module.exports = {
   transform: {
-    "^.+\\.(js|ts)$": "babel-jest",
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.js$": "babel-jest",
   },
+  moduleNameMapper: {
+    "\\.(css|less|scss)$": "identity-obj-proxy",
+    "\\.(gif|ttf|eot|svg)$": "jest-transform-stub", // Mock other assets
+  },
+  testEnvironment: "jsdom", // If you're testing a web application
 };
-
-module.exports = config; // Use CommonJS export
