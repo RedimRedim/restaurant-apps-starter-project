@@ -120,7 +120,7 @@ export class Restaurant {
                 <form id="customerReview" style="display: none;">
                    <div class="form-group">
                   <label for="customerReview">Name:</label>
-                  <input type="text" id="customerName" name="customerName" required minlength=5>
+                  <input type="text" id="customerName" name="customerName" required minlength="5">
                   </div>
 
                   <div class="form-group">

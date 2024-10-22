@@ -1,85 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link rel="manifest" href="app.webmanifest.json" />
 
-<head>
-  <link rel="manifest" href="app.webmanifest.json">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Apps</title>
 
+    <!-- Poppins-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <title>Restaurant Apps</title>
+    <style>
+      .spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-  <!-- Poppins-->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+      .dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        border-radius: 50%;
+        background-color: #1677ff;
+        /* Change as needed */
+      }
+    </style>
+  </head>
 
-  <style>
-    .spinner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  <body>
+    <a href="#mainContent" class="skip-link">Skip to content</a>
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      margin: 0 5px;
-      border-radius: 50%;
-      background-color: #1677ff;
-      /* Change as needed */
-    }
-  </style>
+    <header class="app-bar" id="appBar">
+      <div class="app-bar__menu">
+        <button id="hamburgerButton">☰</button>
+      </div>
 
-</head>
+      <div class="app-bar_brand">
+        <a href="/">Rest Design</a>
+      </div>
 
-<body>
-  <a href="#mainContent" class="skip-link">Skip to content</a>
+      <nav id="navigationDrawer" class="app-bar__navigation">
+        <ul>
+          <li class=""><a href="/">Home</a></li>
+          <li class=""><a href="#/favorite" id="favoriteLink">Favourite</a></li>
+          <li class="">
+            <a href="https://github.com/RedimRedim/" target="_blank"
+              >About Us</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <img src="/images/hero-image_2-large.jpg" alt="Hero Image" />
 
-  <header class="app-bar" id="appBar">
-    <div class="app-bar__menu">
-      <button id="hamburgerButton">☰</button>
+    <div class="skeleton">
+      <h1 class="text-2xl font-bold">Welcome to Skeleton Windy UI</h1>
+      <p class="text-gray-700">
+        This is a simple example of using Skeleton components.
+      </p>
     </div>
 
-    <div class="app-bar_brand">
-      <a href="/">Rest Design</a>
+    <div class="hero-element">
+      <picture>
+        <!-- This source will be used for screens up to 600px -->
+        <source
+          media="(max-width: 600px)"
+          srcset="/images/hero-image_2-small.jpg"
+        />
+        <source
+          media="(max-width: 601px)"
+          srcset="/images/hero-image_2-large.jpg"
+        />
+        <!-- This img will be used for larger screens -->
+        <img src="/images/hero-image_2-large.jpg" alt="Hero Image" />
+      </picture>
     </div>
 
-    <nav id="navigationDrawer" class="app-bar__navigation">
-      <ul>
-        <li class=""><a href="/">Home</a></li>
-        <li class=""><a href="#/favorite" id="favoriteLink">Favourite</a></li>
-        <li class=""><a href="https://github.com/RedimRedim/" target="_blank">About Us</a>
-      </ul>
-    </nav>
+    <div id="loading" class="spinner" style="display: none">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
 
-  </header>
-  <img src="/images/hero-image_2-large.jpg" alt="Hero Image">
+    <!-- render through index.js -->
+    <main id="mainContent"></main>
 
-
-  <div class="hero-element">
-    <picture>
-      <!-- This source will be used for screens up to 600px -->
-      <source media="(max-width: 600px)" srcset="/images/hero-image_2-small.jpg">
-      <source media="(max-width: 601px)" srcset="/images/hero-image_2-large.jpg">
-      <!-- This img will be used for larger screens -->
-      <img src="/images/hero-image_2-large.jpg" alt="Hero Image">
-    </picture>
-  </div>
-
-  <div id="loading" class="spinner" style="display: none">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-  </div>
-
-  <!-- render through index.js -->
-  <main id="mainContent">
-
-
-  </main>
-
-  <rest-custom-footer></rest-custom-footer>
-
-</body>
-
+    <rest-custom-footer></rest-custom-footer>
+  </body>
 </html>

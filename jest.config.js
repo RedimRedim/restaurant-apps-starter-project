@@ -1,6 +1,5 @@
 module.exports = {
   transform: {
-    "^.+\\.jsx?$": "babel-jest",
     "^.+\\.js$": "babel-jest",
   },
   moduleNameMapper: {
@@ -8,4 +7,6 @@ module.exports = {
     "\\.(gif|ttf|eot|svg)$": "jest-transform-stub", // Mock other assets
   },
   testEnvironment: "jsdom", // If you're testing a web application
+  setupFiles: ["fake-indexeddb/auto"],
+  testPathIgnorePatterns: ["/node_modules", "/e2e/"],
 };

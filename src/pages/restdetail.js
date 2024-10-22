@@ -60,7 +60,14 @@ export const restDetail = {
     const addReviewBtn = document.querySelector("#submitBtn");
     addReviewBtn.addEventListener("click", async (event) => {
       event.preventDefault();
-      await reviews.postReview();
+
+      const form = document.querySelector("#customerReview");
+
+      if (form.checkValidity()) {
+        await reviews.postReview();
+      } else {
+        alert("Minimum Length for name is 5 characters");
+      }
     });
   },
 

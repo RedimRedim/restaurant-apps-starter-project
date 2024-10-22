@@ -1,18 +1,33 @@
-import { fireEvent, getByText } from "@testing-library/dom";
-import { restDetail } from "../src/pages/restdetail";
+const { restDetail } = require("../src/pages/restdetail");
+const { JSDOM } = require("jsdom");
+
+jest.mock("../src/component/indexdb.js", () => ({
+  addRestaurant: jest.fn(),
+  delRestaurant: jest.fn(),
+}));
+
+jest.mock("../src/component/restaurant.js", () => ({
+  getRestDetails: jest.fn().mockResolvedValue({}),
+}));
 
 describe("like button functionality", () => {
   beforeEach(() => {
-    document.body.innerHTML =
-      '<button class="likeBtn favBtn" data-restid="1">Like</button>';
+    const { window } = new JSDOM(`<!doctype html><html><body>
+      <button class="likeBtn favBtn" data-restid="1">Like</button>
+      </body></html>`);
+    document = window.document;
+    global.document = document;
+
     restDetail.likeClickListener();
   });
 
-  it("changes like button text when clicked", () => {
+  test("changes like button text when clicked", async () => {
     const button = document.querySelector(".favBtn");
 
-    fireEvent.click(button);
+    button.click();
 
-    expect(button.innerHTML).toBe("Unlike");
+    await Promise.resolve();
+
+    expect(button.textContent).toBe("Unlike");
   });
 });

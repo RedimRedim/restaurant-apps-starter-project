@@ -16,6 +16,10 @@ export const restFavorite = {
     const favRestaurant = await FavoriteRestIdb.getAllRestaurants();
 
     const favDataHtml = [];
+    if (favRestaurant.length === 0)
+      return (document.querySelector(".favContainer").innerHTML =
+        "Not yet added any favorite restaurant");
+
     favRestaurant.forEach((restaurant) => {
       favDataHtml.push(
         ` 
