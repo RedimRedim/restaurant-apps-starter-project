@@ -1,12 +1,9 @@
 import { API_ENDPOINT } from "../globals/config.js";
-const { getQueryParameter } = require("../utils/queryparams");
+import { getQueryParameter } from "../utils/queryparams";
 import { showLoading, hideLoading } from "../utils/loading.js";
-const { Restaurant } = require("./restaurant");
 
-export class Reviews extends Restaurant {
-  constructor() {
-    super();
-  }
+export class Reviews {
+  constructor() {}
 
   async postReview() {
     showLoading();
