@@ -50,10 +50,13 @@ body {
   width: 200px;
   display: flex;
   align-items: center;
+
   justify-content: center;
 }
 
 .app-bar_brand a {
+  align-content: center;
+  align-self: center;
   text-decoration: none;
   color: black;
   font-weight: 700;
@@ -101,6 +104,8 @@ body {
   text-decoration: none;
   color: black;
   padding: 8px;
+  align-content: center;
+  align-self: center;
 }
 
 .skip-link {

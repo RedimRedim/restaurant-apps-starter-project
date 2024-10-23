@@ -2,7 +2,7 @@ const { strict: assert } = require("assert");
 
 Feature("Liking Restaurant");
 
-Scenario("showing empty liked movies", ({ I }) => {
+Scenario("showing empty liked restaurant", ({ I }) => {
   I.amOnPage("/#/favorite");
   I.seeElement(".favContainer");
 
