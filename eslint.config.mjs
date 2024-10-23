@@ -1,18 +1,27 @@
+import { defineConfig } from "eslint-define-config";
 import globals from "globals";
 import pluginJs from "@eslint/js";
 
-export default [
+export default defineConfig([
   {
     languageOptions: {
       globals: {
-        ...globals.browser, // Keep browser globals
-        ...globals.node, // Add Node.js globals if needed
+        ...globals.browser,
+        ...globals.node,
+        beforeEach: "readonly",
+        Feature: "readonly",
+        Scenario: "readonly",
+        locate: "readonly",
+        actor: "readonly",
       },
       parserOptions: {
-        ecmaVersion: 2020, // Specify the ECMAScript version
-        sourceType: "module", // Use "module" for ES modules
+        ecmaVersion: 2020,
+        sourceType: "module",
       },
+    },
+    rules: {
+      // Add your custom rules here
     },
   },
   pluginJs.configs.recommended,
-];
+]);

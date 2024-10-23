@@ -1,3 +1,5 @@
+/* eslint-env codeceptjs */
+
 const { strict: assert } = require("assert");
 
 Feature("Liking Restaurant");

@@ -1,3 +1,5 @@
+/* eslint-env codeceptjs */
+
 const { faker } = require("@faker-js/faker");
 
 Feature("Review Restaurant");
@@ -31,7 +33,7 @@ Scenario("Adding Name that below 5 characters or null", ({ I }) => {
 
   I.seeElement("#addReview");
   I.click("#addReview");
-  I.fillField("customerName", "");
+  I.fillField("customerName", "a");
   I.fillField("customerReview", "test");
   I.click("#submitBtn");
   I.seeInPopup("Minimum Length for name is 5 characters");
