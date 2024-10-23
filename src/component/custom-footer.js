@@ -24,5 +24,3 @@ export class RestCustomFooter extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 }
-
-customElements.define("rest-custom-footer", RestCustomFooter);

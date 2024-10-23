@@ -56,7 +56,7 @@ export const restDetail = {
     });
   },
 
-  handlingSubmitRewiewFormListener() {
+  handlingSubmitReviewFormListener() {
     const addReviewBtn = document.querySelector("#submitBtn");
     addReviewBtn.addEventListener("click", async (event) => {
       event.preventDefault();
@@ -108,6 +108,6 @@ export const restDetail = {
     await restaurant.generateRestDetailHtml(hrefId);
     this.changeLikeBtnColor();
     this.initListener();
-    this.handlingSubmitRewiewFormListener();
+    this.handlingSubmitReviewFormListener();
   },
 };

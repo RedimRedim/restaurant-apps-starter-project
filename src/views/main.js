@@ -4,6 +4,9 @@ import "../styles/mediastyles.css";
 import App from "./app.js";
 import "lazysizes";
 import "lazysizes/plugins/parent-fit/ls.parent-fit";
+import { RestCustomFooter } from "../component/custom-footer.js";
+
+customElements.define("rest-custom-footer", RestCustomFooter);
 
 //rendering urlParser
 const app = new App({

@@ -6,7 +6,9 @@ Scenario("Adding Custom Review", ({ I }) => {
   const name = faker.person.fullName();
   const detail = faker.lorem.sentence();
 
-  I.amOnPage("/#/detail/?id=s1knt6za9kkfw1e867");
+  I.amOnPage("/");
+  I.seeElement(".restPictureId > a");
+  I.click(locate(".restPictureId > a").first());
 
   I.seeElement("#addReview");
   I.click("#addReview");
@@ -23,7 +25,9 @@ Scenario("Adding Custom Review", ({ I }) => {
 Feature("Review Restaurant Invalid Name Case");
 
 Scenario("Adding Name that below 5 characters or null", ({ I }) => {
-  I.amOnPage("/#/detail/?id=s1knt6za9kkfw1e867");
+  I.amOnPage("/");
+  I.seeElement(".restPictureId > a");
+  I.click(locate(".restPictureId > a").first());
 
   I.seeElement("#addReview");
   I.click("#addReview");

@@ -1,3 +1,5 @@
+const { strict: assert } = require("assert");
+
 Feature("Liking Restaurant");
 
 Scenario("showing empty liked movies", ({ I }) => {
@@ -7,31 +9,33 @@ Scenario("showing empty liked movies", ({ I }) => {
   I.see("Not yet added any favorite restaurant");
 });
 
-Scenario("Liking one movie", ({ I }) => {
-  I.amOnPage("/#/detail/?id=s1knt6za9kkfw1e867");
+Scenario("Liking & Unliking one movie", async ({ I }) => {
+  I.amOnPage("/");
+  I.seeElement(".restPictureId > a");
+  I.click(locate(".restPictureId > a").first());
   I.seeElement(".favBtn");
   I.see("Like");
   I.click(".favBtn");
 
+  let dataRestId = await I.grabAttributeFrom(".favBtn", "data-restid");
+
   I.amOnPage("/#/favorite");
-
-  I.grabAttributeFrom("a[href='#/detail/?id=s1knt6za9kkfw1e867']", "href").then(
-    (href) => {
-      console.log(href);
-
-      I.assertEqual(href, "#/detail/?id=s1knt6za9kkfw1e867");
-    }
+  const href = await I.grabAttributeFrom(".restPictureId > a", "href");
+  console.log(dataRestId, href);
+  assert(
+    href.includes(dataRestId),
+    `Expected Href to include DataRestId, but got: ${href}`
   );
-});
 
-Scenario("Unliking one movie", ({ I }) => {
-  I.amOnPage("/#/detail/?id=s1knt6za9kkfw1e867");
+  //Unliking part
+  I.amOnPage("/#/favorite");
+  await I.seeElement(".restPictureId > a");
+  I.click(locate(".restPictureId > a").first());
   I.seeElement(".favBtn");
-  I.click(".favBtn"); //Like first click then will change into Unlike
   I.see("Unlike");
-  I.click(".favBtn"); //Unlike click
+  dataRestId = await I.grabAttributeFrom(".favBtn", "data-restid");
+  I.click(".favBtn");
 
   I.amOnPage("/#/favorite");
-
   I.see("Not yet added any favorite restaurant");
 });
