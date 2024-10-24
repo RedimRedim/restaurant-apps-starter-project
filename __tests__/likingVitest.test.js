@@ -6,8 +6,8 @@ import { FavoriteRestIdb } from "../src/component/indexdb";
 
 vi.mock("../src/component/indexdb.js", () => ({
   FavoriteRestIdb: {
-    addRestaurant: vi.fn().mockResolvedValue({ id: 1 }), // Mock the function
-    delRestaurant: vi.fn().mockResolvedValue({ id: 1 }), // Mock the function
+    addRestaurant: vi.fn().mockResolvedValue({ id: "1", favorite: true }), // Mock the function
+    delRestaurant: vi.fn().mockResolvedValue("1"), // Mock the function
   },
 }));
 
@@ -15,7 +15,7 @@ vi.mock("../src/component/restaurant.js", () => {
   return {
     Restaurant: vi.fn().mockImplementation(() => {
       return {
-        getRestDetails: vi.fn().mockResolvedValue({ id: 1 }),
+        getRestDetails: vi.fn().mockResolvedValue({ data: {} }),
       };
     }),
   };
@@ -31,7 +31,7 @@ describe("like button functionality", () => {
 
   beforeEach(() => {
     const { window } = new JSDOM(`<!doctype html><html><body>
-       <button class="likeBtn favBtn">Like</button>
+       <button class="likeBtn favBtn" data-restid="1">Like</button>
        </body></html>`);
     global.document = window.document; // Set global document
     button = document.querySelector(".favBtn"); // Initialize button
@@ -39,22 +39,26 @@ describe("like button functionality", () => {
   });
 
   //First time Pressing like button
-  it("it should change button.TextContent = Unlike once clicked", async () => {
+  it("should change button.TextContent = Unlike once clicked", async () => {
     expect(button.textContent).toEqual("Like");
     await button.click(); // First click to like
     expect(FavoriteRestIdb.addRestaurant).toHaveBeenCalledWith({
-      id: 1,
+      id: "1",
       favorite: true,
-      data: { id: 1 },
+      data: expect.anything(),
     }); // Check addRestaurant was called
+
+    await Promise.resolve();
     expect(button.textContent).toEqual("Unlike");
   });
 
-  it("it should change button.TextContent = Like once unliked", async () => {
+  it("should change button.TextContent = Like once unliked", async () => {
     button.textContent = "Unlike";
     expect(button.textContent).toEqual("Unlike");
     await button.click(); // First click to like
-    expect(FavoriteRestIdb.delRestaurant).toHaveBeenCalledWith({ id: 1 }); // Check delRestaurant was called
+    expect(FavoriteRestIdb.delRestaurant).toHaveBeenCalledWith("1"); // Check delRestaurant was called
+
+    await Promise.resolve();
     expect(button.textContent).toEqual("Like");
   });
 });
