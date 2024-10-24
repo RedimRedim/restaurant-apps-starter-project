@@ -38,6 +38,32 @@ export const restDetail = {
     }
   },
 
+  likeClickListener() {
+    const likeBtnElement = document.querySelectorAll(".favBtn");
+
+    likeBtnElement.forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        console.log(btn.textContent);
+
+        if (btn.textContent === "Like") {
+          await FavoriteRestIdb.addRestaurant({
+            id: btn.dataset.restid,
+            favorite: true,
+            data: await restaurant.getRestDetails(btn.dataset.restid),
+          });
+          btn.style.backgroundColor = "#424242";
+          btn.textContent = "Unlike";
+          console.log("Restaurant has been added to favorites db");
+        } else {
+          await FavoriteRestIdb.delRestaurant(btn.dataset.restid);
+          btn.style.backgroundColor = "#1677ff";
+          btn.textContent = "Like";
+          console.log("Restaurant has been unfavorited");
+        }
+      });
+    });
+  },
+
   addReviewClickListener() {
     this.changeLikeBtnColor();
     const addReviewBtn = document.querySelector("#addReview");
@@ -68,32 +94,6 @@ export const restDetail = {
       } else {
         alert("Minimum Length for name is 5 characters");
       }
-    });
-  },
-
-  likeClickListener() {
-    const likeBtnElement = document.querySelectorAll(".favBtn");
-
-    likeBtnElement.forEach((btn) => {
-      btn.addEventListener("click", async () => {
-        console.log(btn.textContent);
-
-        if (btn.textContent === "Like") {
-          await FavoriteRestIdb.addRestaurant({
-            id: btn.dataset.restid,
-            favorite: true,
-            data: await restaurant.getRestDetails(btn.dataset.restid),
-          });
-          btn.style.backgroundColor = "#424242";
-          btn.textContent = "Unlike";
-          console.log("Restaurant has been added to favorites db");
-        } else {
-          await FavoriteRestIdb.delRestaurant(btn.dataset.restid);
-          btn.style.backgroundColor = "#1677ff";
-          btn.textContent = "Like";
-          console.log("Restaurant has been unfavorited");
-        }
-      });
     });
   },
 
