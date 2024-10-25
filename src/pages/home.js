@@ -6,6 +6,22 @@ export const home = {
 
     <section>
 
+    <div class="hero-element">
+      <picture>
+        <!-- This source will be used for screens up to 600px -->
+        <source
+          media="(max-width: 600px)"
+          srcset="images/hero-image_2-small.jpg"
+        />
+        <source
+          media="(max-width: 601px)"
+          srcset="images/hero-image_2-large.jpg"
+        />
+        <!-- This img will be used for larger screens -->
+        <img src="images/hero-image_2-large.jpg" alt="Hero Image" />
+      </picture>
+    </div>
+
     <button id="addRestaurant">Add Restaurant</button>
       <form id="restForm" style="display:none">
         <h3 style="text-align:center">Add Restaurant</h3>
