@@ -1,6 +1,7 @@
 import DrawerInitiator from "../utils/drawer-initiator";
 import UrlParser from "../routes/urlparser";
 import { routes } from "../component/routes";
+import { setupSkipLink } from "../utils/skip-link-listener.js";
 
 class App {
   constructor({ button, drawer, content }) {
@@ -27,6 +28,7 @@ class App {
     const page = routes[url];
     this._content.innerHTML = await page.render();
     await page.afterRender();
+    setupSkipLink();
   }
 }
 

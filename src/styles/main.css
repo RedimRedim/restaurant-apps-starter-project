@@ -218,6 +218,8 @@ nav a:hover {
   align-content: center;
   font-size: 1.2em;
   flex-grow: 1;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 .restDescription {
@@ -291,6 +293,8 @@ nav a:hover {
 textarea {
   flex-grow: 1;
   font-size: 1.5em;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 .rest-group {
@@ -303,14 +307,20 @@ input:focus,
 textarea:focus {
   border: 3px solid rgb(13, 110, 253, 0.5);
   outline: none;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 input[type="file"] {
   padding: 0; /* Adjust padding for file input */
+  min-width: 50px;
+  min-height: 50px;
 }
 
 input[type="number"] {
   width: 50%; /* Adjust width for number input */
+  min-width: 50px;
+  min-height: 50px;
 }
 
 label {
@@ -324,6 +334,8 @@ input[type="file"],
 textarea:focus {
   padding: 10px;
   font-size: 1.2em;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 #restRating::placeholder {
@@ -343,6 +355,8 @@ textarea:focus {
 #cancelRest {
   padding: 1em;
   width: 30%;
+  min-width: 50px;
+  min-height: 50px;
 }
 
 #addRestaurant,
